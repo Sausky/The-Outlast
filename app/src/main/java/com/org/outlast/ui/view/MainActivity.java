@@ -2,12 +2,14 @@ package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.org.outlast.R;
 
@@ -17,6 +19,8 @@ public class MainActivity extends Activity {
     private ImageView secret_pic;
     private ImageView desk;
     private Intent intent;
+
+    private LinearLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,11 @@ public class MainActivity extends Activity {
             }
         });
 
+
+        background = (LinearLayout)findViewById(R.id.main_curtain);
+        background.setBackgroundResource(R.drawable.pre_start_animation);
+        AnimationDrawable animationDrawable = (AnimationDrawable)background.getBackground();
+        animationDrawable.start();
     }
 
 }
