@@ -11,6 +11,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/prompt_portrait"/>
     <ImageView
+        android:id="@+id/prompt_inf"
         android:layout_weight="1"
         android:layout_gravity="bottom"
         android:layout_height="100dp"

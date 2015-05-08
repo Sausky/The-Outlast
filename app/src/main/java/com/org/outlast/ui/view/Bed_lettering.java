@@ -1,7 +1,6 @@
 package com.org.outlast.ui.view;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,20 +10,20 @@ import android.widget.ImageView;
 
 import com.org.outlast.R;
 
-public class Desk_prompt extends Activity{
-    ImageView prompt_inf;
+public class Bed_lettering extends Activity {
+    ImageView bed_lettering;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_desk_prompt);
-        //获取提示实现点击关闭
-        prompt_inf = (ImageView) findViewById(R.id.prompt_inf);
-        prompt_inf.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_bed_lettering);
+        bed_lettering = (ImageView) findViewById(R.id.bed_lettering);
+        bed_lettering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
     }
+
 
 }

@@ -18,10 +18,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.view.desk_prompt"
+            android:name=".ui.view.Desk_prompt"
             android:label="@string/title_activity_desk_prompt"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ui.view.Secret_pic_feature"
+            android:label="@string/title_activity_secret_pic_feature"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ui.view.Bed_lettering"
+            android:label="@string/title_activity_bed_lettering"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"  >
         </activity>
     </application>
 
