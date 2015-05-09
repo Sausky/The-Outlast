@@ -2,7 +2,11 @@ package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +23,8 @@ public class MainActivity extends Activity {
     private ImageView secret_pic;
     private ImageView desk;
     private Intent intent;
+
+    private Bitmap girl;
 
     private LinearLayout background;
 
@@ -38,6 +44,12 @@ public class MainActivity extends Activity {
             }
         });
 
+
+        girl = BitmapFactory.decodeResource(this.getResources(),R.drawable.girl);
+
+        Canvas c = new Canvas(girl);
+
+//        c.save();
 
         background = (LinearLayout)findViewById(R.id.main_curtain);
         background.setBackgroundResource(R.drawable.pre_start_animation);
