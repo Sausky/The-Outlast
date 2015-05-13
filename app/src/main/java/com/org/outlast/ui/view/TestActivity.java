@@ -7,6 +7,9 @@ import android.view.WindowManager;
 
 /**
  * Created by shen on 15/5/9.
+ *
+ * test the ability to move a single picture
+ *
  */
 public class TestActivity extends Activity{
     @Override

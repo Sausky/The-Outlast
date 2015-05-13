@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -51,10 +53,10 @@ public class MainActivity extends Activity {
 
 //        c.save();
 
-        background = (LinearLayout)findViewById(R.id.main_curtain);
-        background.setBackgroundResource(R.drawable.pre_start_animation);
-        AnimationDrawable animationDrawable = (AnimationDrawable)background.getBackground();
-        animationDrawable.start();
+//        background = (LinearLayout)findViewById(R.id.main_curtain);
+//        background.setBackgroundResource(R.drawable.pre_start_animation);
+//        AnimationDrawable animationDrawable = (AnimationDrawable)background.getBackground();
+//        animationDrawable.start();
     }
 
 }
