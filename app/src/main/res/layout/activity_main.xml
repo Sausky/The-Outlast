@@ -1,13 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:id="@+id/main_curtain">
 
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/background"/>
+        android:id="@+id/background"
+        android:src="@drawable/background"
+        />
 
     <ImageView
         android:id="@+id/door"
@@ -18,7 +21,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
         <ImageView
             android:id="@+id/secret_pic"
@@ -75,4 +79,13 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:src="@drawable/mirror"/>
-</LinearLayout>
+
+
+    <com.org.outlast.ui.view.GirlSurfaceView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/mirror">
+    </com.org.outlast.ui.view.GirlSurfaceView>
+
+</FrameLayout>

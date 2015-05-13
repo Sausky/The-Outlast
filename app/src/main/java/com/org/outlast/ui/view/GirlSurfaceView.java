@@ -1,17 +1,13 @@
 package com.org.outlast.ui.view;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.DisplayMetrics;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.graphics.PixelFormat;
+import android.graphics.Rect;
+import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.*;
 import android.view.SurfaceView;
@@ -19,8 +15,6 @@ import android.view.animation.Animation;
 
 import com.org.outlast.R;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 
 /**
@@ -30,8 +24,6 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
     private SurfaceHolder sfh;
     private Thread th;
     private Canvas canvas;
-    private Paint paint;
-    private int ScreenW, ScreenH;
 
     private int GirlW,GirlH;
 
@@ -41,20 +33,33 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
 
     public GirlSurfaceView(Context context){
         super(context);
+        init();
+    }
+
+    public GirlSurfaceView(Context context, AttributeSet attrs) {     //Constructor that is called when inflating a view from XML
+        super(context,attrs);
+        init();
+
+    }
+    public GirlSurfaceView(Context context, AttributeSet attrs, int defStyle) {     //Perform inflation from XML and apply a class-specific base style
+        super(context,attrs,defStyle);
+        init();
+    }
+
+    public void init() {
         th = new Thread(this);
         sfh = this.getHolder();
         sfh.addCallback(this);
-        paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(Color.RED);
+        setZOrderOnTop(true);    // necessary
+        sfh.setFormat(PixelFormat.TRANSPARENT);
         this.setKeepScreenOn(true);
 
 
-        girl = BitmapFactory.decodeResource(this.getResources(),R.drawable.girl);
-
+        girl = BitmapFactory.decodeResource(this.getResources(), R.drawable.girl);
 
         GirlW = girl.getWidth();
         GirlH = girl.getHeight();
+
     }
 
     @Override
@@ -63,17 +68,18 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
     }
 
     public void surfaceCreated(SurfaceHolder holder) {
-        ScreenW = this.getWidth();
-        ScreenH = this.getHeight();
         th.start();
     }
+
     private void draw() {
-        canvas = sfh.lockCanvas();
-        canvas.drawRect(0, 0, ScreenW, ScreenH, paint);
+        canvas = sfh.lockCanvas(new Rect(controll_flag>1?(controll_flag-2)*10:0 , 0, GirlW/2 + controll_flag*10, GirlH));
+
         canvas.save();
 
-        canvas.clipRect(controll_flag*10, 0, GirlW/2 + controll_flag*10, GirlH);
-        canvas.drawBitmap(girl, -(controll_flag%2)*(GirlW/2)+controll_flag*10, 0, null);
+
+        canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
+        canvas.drawBitmap(girl, -(controll_flag % 2) * (GirlW / 2) + controll_flag*10, 0, null);
+
         canvas.restore();
         sfh.unlockCanvasAndPost(canvas);  // 将画好的画布提交
     }
@@ -81,7 +87,7 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
         while (controll_flag++<40) {
             draw();
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -93,12 +99,4 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
     public void surfaceDestroyed(SurfaceHolder holder) {
     }
 
-//    @Override
-//    public boolean onDown(MotionEvent e){
-//        double x = e.getX();
-//        double y = e.getY();
-//
-//
-//
-//    }
 }
