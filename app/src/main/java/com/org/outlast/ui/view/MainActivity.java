@@ -2,11 +2,15 @@ package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.org.outlast.R;
 
@@ -20,6 +24,10 @@ public class MainActivity extends Activity {
     private Intent intent;
     private Handler handler;
     private int bed_number = 0;
+
+    private Bitmap girl;
+
+    private LinearLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +88,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 intent = new Intent();
-                intent.setClass(MainActivity.this, Desk_prompt.class);
+                intent.setClass(MainActivity.this, desk_prompt.class);
                 startActivity(intent);
             }
         });
+
+
+        girl = BitmapFactory.decodeResource(this.getResources(),R.drawable.girl_small);
 
     }
 
