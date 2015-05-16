@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.org.outlast.R;
+import com.org.outlast.core.entity.Goods;
+import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
+
+import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -18,8 +22,12 @@ public class MainActivity extends Activity {
     private ImageView secret_pic;
     private ImageView desk;
     private ImageView bed;
+    private ImageView deposit;
+    public GoodsList data;
+    private List<Goods> goodsList;
     private Intent intent;
     private Handler handler;
+    /**床消息编号*/
     private int bed_number = 0;
 
     private CanvasRefresher girlView;
@@ -28,12 +36,18 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        door = (ImageView) findViewById(R.id.door);
-        secret_pic = (ImageView) findViewById(R.id.secret_pic);
-        desk = (ImageView)findViewById(R.id.desk);
-        bed = (ImageView) findViewById(R.id.bed);
-        girlView = (CanvasRefresher)findViewById(R.id.girl_view);
 
+        initThings();
+
+
+        //传输物品栏数据
+        deposit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.setClass(MainActivity.this, Deposit.class);
+                startActivity(intent);
+            }
+        });
         //开启床的线程
         bed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +111,29 @@ public class MainActivity extends Activity {
         girlView.moveTo(300,0);
 
     }
-
+    /**
+     * 初始化
+     */
+    public void initThings(){
+        girlView = (CanvasRefresher)findViewById(R.id.girl_view);
+        door = (ImageView) findViewById(R.id.door);
+        secret_pic = (ImageView) findViewById(R.id.secret_pic);
+        desk = (ImageView)findViewById(R.id.desk);
+        bed = (ImageView) findViewById(R.id.bed);
+        deposit = (ImageView) findViewById(R.id.deposit);
+        data = (GoodsList) getApplication();
+        goodsList = data.getGoodsList();
+        intent = new Intent();
+    }
+    /**
+     * 获取物品
+     */
+    public void addGoods(String name,Integer source){
+        Goods goods = new Goods();
+        goods.setName(name);
+        goods.setSource(source);
+        goodsList.add(goods);
+    }
 
     @Override
     protected void onStart(){

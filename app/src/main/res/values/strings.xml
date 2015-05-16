@@ -7,4 +7,5 @@
     <string name="back">Back</string>
     <string name="title_activity_secret_pic_feature">Secret_pic_feature</string>
     <string name="title_activity_bed_lettering">Bed_lettering</string>
+    <string name="title_activity_deposit">Deposit</string>
 </resources>
