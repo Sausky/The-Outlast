@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.org.outlast.R;
 
-public class Desk_prompt extends Activity{
+public class desk_prompt extends Activity{
     ImageView prompt_inf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

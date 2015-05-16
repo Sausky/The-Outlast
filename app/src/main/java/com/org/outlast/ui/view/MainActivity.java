@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
     private ImageView desk;
     private ImageView bed;
     private Intent intent;
+    private ImageView toolbox;
     private Handler handler;
     private int bed_number = 0;
 
@@ -29,6 +30,7 @@ public class MainActivity extends Activity {
         secret_pic = (ImageView) findViewById(R.id.secret_pic);
         desk = (ImageView)findViewById(R.id.desk);
         bed = (ImageView) findViewById(R.id.bed);
+        toolbox=(ImageView)findViewById(R.id.toolbox);
         //开启床的线程
         bed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +82,20 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 intent = new Intent();
-                intent.setClass(MainActivity.this, Desk_prompt.class);
+                intent.setClass(MainActivity.this, desk_prompt.class);
                 startActivity(intent);
             }
         });
 
+        toolbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent =new Intent();
+                intent.setClass(MainActivity.this,Tools.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
 }

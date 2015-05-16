@@ -1,10 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Outlast</string>
 
+    <string name="app_name">Outlast</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_desk_prompt">desk_prompt</string>
     <string name="back">Back</string>
     <string name="title_activity_secret_pic_feature">Secret_pic_feature</string>
     <string name="title_activity_bed_lettering">Bed_lettering</string>
+    <string name="title_activity_toolbox">Toolbox</string>
+    <string name="title_activity_tools">Tools</string>
+    <string name="dryer">dryer</string>
+    <string name="screwdriver">screwdriver</string>
+    <string name="ring">ring</string>
+    <string name="shovel">shovel</string>
+    <string name="exercise_book">exercise_book</string>
 </resources>

@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.view.Desk_prompt"
+            android:name=".ui.view.desk_prompt"
             android:label="@string/title_activity_desk_prompt"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
@@ -33,7 +33,11 @@
             android:name=".ui.view.Bed_lettering"
             android:label="@string/title_activity_bed_lettering"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"  >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ui.view.Tools"
+            android:label="@string/title_activity_tools" >
         </activity>
     </application>
 
