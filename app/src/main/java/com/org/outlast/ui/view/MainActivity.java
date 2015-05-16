@@ -2,18 +2,15 @@ package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.org.outlast.R;
-
+import com.org.outlast.ui.view.animationMove.CanvasRefresher;
 
 
 public class MainActivity extends Activity {
@@ -25,9 +22,7 @@ public class MainActivity extends Activity {
     private Handler handler;
     private int bed_number = 0;
 
-    private Bitmap girl;
-
-    private LinearLayout background;
+    private CanvasRefresher girlView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +32,8 @@ public class MainActivity extends Activity {
         secret_pic = (ImageView) findViewById(R.id.secret_pic);
         desk = (ImageView)findViewById(R.id.desk);
         bed = (ImageView) findViewById(R.id.bed);
+        girlView = (CanvasRefresher)findViewById(R.id.girl_view);
+
         //开启床的线程
         bed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +91,40 @@ public class MainActivity extends Activity {
         });
 
 
-        girl = BitmapFactory.decodeResource(this.getResources(),R.drawable.girl_small);
+//        call this method every time you want to move
+        girlView.moveTo(300,300);
+
+        girlView.moveTo(300,0);
 
     }
 
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+    }
+
+    protected void onRestart(){
+        super.onRestart();
+    }
+
+
+    protected void onDestroy(){
+        super.onDestroy();
+    }
 }

@@ -28,7 +28,7 @@
             <!--</intent-filter>-->
         <!--</activity>-->
         <activity
-            android:name=".ui.view.Desk_prompt"
+            android:name=".ui.view.desk_prompt"
             android:label="@string/title_activity_desk_prompt"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >

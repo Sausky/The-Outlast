@@ -75,11 +75,11 @@
 
 
 
-    <com.org.outlast.ui.view.GirlSurfaceView
+    <com.org.outlast.ui.view.animationMove.CanvasRefresher
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:layout_below="@+id/mirror">
-    </com.org.outlast.ui.view.GirlSurfaceView>
+        android:id="@+id/girl_view">
+    </com.org.outlast.ui.view.animationMove.CanvasRefresher>
 
 </FrameLayout>
