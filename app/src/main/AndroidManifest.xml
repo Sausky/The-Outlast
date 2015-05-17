@@ -6,7 +6,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+
+        >
         <activity
             android:name=".ui.view.MainActivity"
             android:label="@string/app_name"
@@ -37,7 +39,10 @@
         </activity>
         <activity
             android:name=".ui.view.Tools"
-            android:label="@string/title_activity_tools" >
+            android:label="@string/title_activity_tools"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            >
         </activity>
     </application>
 

@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
     private ImageView desk;
     private ImageView bed;
     private Intent intent;
-    private ImageView toolbox;
+    private static ImageView toolbox;
     private Handler handler;
     private int bed_number = 0;
 
@@ -97,5 +97,9 @@ public class MainActivity extends Activity {
         });
     }
 
+
+    public static ImageView getToolbox(){
+      return  toolbox;
+    }
 
 }

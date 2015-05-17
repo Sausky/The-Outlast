@@ -19,16 +19,19 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Tools extends Activity {
+    //当前拥有的所有道具
     private static HashSet<String> tools=new HashSet<String>();
     private ImageView dryerImage;
     private ImageView ringImage;
     private ImageView shovelImage;
     private ImageView exerciceBookImage;
     private ImageView screwdriverImage;
+    //所有道具名称
     private String[] allTools;
     private ImageView[] images;
     private View.OnClickListener[] listeners;
-
+    //当前正在使用的道具
+    private static String toolUsed="";
 
 
     @Override
@@ -45,7 +48,11 @@ public class Tools extends Activity {
         images=new ImageView[]{dryerImage,ringImage,shovelImage,screwdriverImage,exerciceBookImage};
         listeners=new View.OnClickListener[]{new OnDryerClickedListener(this),new OnRingClickedListener(this),new OnShovelClickedListener(this),
                 new OnSDriverClickedListener(this),new OnExbookClickedListener(this)};
-
+        tools.add(getString(R.string.ring));
+        tools.add(getString(R.string.shovel));
+        tools.add(getString(R.string.screwdriver));
+        tools.add(getString(R.string.exercise_book));
+        tools.add(getString(R.string.dryer));
         for (int i=0;i<allTools.length;i++){
             if (!tools.contains(allTools[i])){
                 images[i].setVisibility(ImageView.INVISIBLE);
@@ -83,5 +90,13 @@ public class Tools extends Activity {
 
     public static void addOneTool(String tool){
           tools.add(tool);
+    }
+
+    public static  void setToolUsed(String toolToUse){
+        toolUsed=toolToUse;
+    }
+
+    public static String getToolUsed(){
+        return toolUsed;
     }
 }
