@@ -96,29 +96,6 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
         th.start();
     }
 
-//    private void draw() {
-//
-//        synchronized (canvas) {
-//
-//            int pace = 3;
-//
-//            int left_pos = controll_flag * pace;
-//
-//            canvas = sfh.lockCanvas(new Rect(left_pos - GirlW, 0, GirlW + left_pos, GirlH));
-//
-//            canvas.save();
-//
-//
-//            canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
-//
-//            //relative position of the image
-////        canvas.drawBitmap(girl, -(controll_flag % 2) * (GirlW / 2)+(pos_left+2)*pace, 0, null);
-//            canvas.drawBitmap(right_girls[controll_flag % 2], left_pos, 0, null);
-//
-//            canvas.restore();
-//            sfh.unlockCanvasAndPost(canvas);  // commit the finished canvas
-//        }
-//    }
 
 
     /*
@@ -241,6 +218,7 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
                         e.printStackTrace();
                     }
                 }
+
             }
         }
     }
@@ -249,7 +227,5 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
     }
     public void surfaceDestroyed(SurfaceHolder holder) {
     }
-
-
 
 }

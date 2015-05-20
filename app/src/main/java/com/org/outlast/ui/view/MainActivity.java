@@ -2,12 +2,13 @@ package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.org.outlast.R;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
@@ -23,6 +24,10 @@ public class MainActivity extends Activity {
     private int bed_number = 0;
 
     private CanvasRefresher girlView;
+
+    private Bitmap girl;
+
+    private LinearLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
