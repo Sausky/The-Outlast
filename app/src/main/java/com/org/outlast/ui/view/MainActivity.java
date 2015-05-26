@@ -25,8 +25,8 @@ public class MainActivity extends Activity {
     private ImageView bed;
     private ImageView deposit;
     private ImageView secret_package;
+    private ImageView socket;
     public GoodsList data;
-    private List<Goods> goodsList;
     private Intent intent;
     private Handler handler;
     /**床消息编号*/
@@ -41,7 +41,14 @@ public class MainActivity extends Activity {
 
         initThings();
 
-
+        //插座
+        socket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = data.getPosition();
+                Log.v("position",String.valueOf(position));
+            }
+        });
         //进入密码箱特写
         secret_package.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +93,6 @@ public class MainActivity extends Activity {
                     bed.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            intent = new Intent();
                             intent.setClass(MainActivity.this, Bed_lettering.class);
                             startActivity(intent);
                         }
@@ -121,6 +127,7 @@ public class MainActivity extends Activity {
         girlView.moveTo(300,0);
 
     }
+
     /**
      * 初始化
      */
@@ -132,8 +139,8 @@ public class MainActivity extends Activity {
         bed = (ImageView) findViewById(R.id.bed);
         deposit = (ImageView) findViewById(R.id.deposit);
         secret_package = (ImageView) findViewById(R.id.secret_package);
+        socket = (ImageView) findViewById(R.id.socket);
         data = (GoodsList) getApplication();
-        goodsList = data.getGoodsList();
         intent = new Intent();
     }
 

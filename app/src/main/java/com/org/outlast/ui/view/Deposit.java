@@ -41,13 +41,18 @@ public class Deposit extends Activity{
         //为GridView设置适配器
         gv.setAdapter(new MyAdapter(this,imgs));
         //注册监听事件
-        /**gv.setOnItemClickListener(new AdapterViewCompat.OnItemClickListener()
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener()
          {
          public void onItemClick(AdapterView<?> parent, View v, int position, long id)
          {
-         Toast.makeText(Deposit.this, "pic" + position, Toast.LENGTH_SHORT).show();
+             data.addPosition(position);
+             Intent intent = new Intent();
+             intent.setClass(Deposit.this,MainActivity.class);
+             startActivity(intent);
+             finish();
+
          }
-         });*/
+         });
         //返回主界面
         back = (ImageView) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {

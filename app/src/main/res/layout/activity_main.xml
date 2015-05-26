@@ -10,13 +10,13 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/deposit"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
             android:src="@drawable/deposit"/>
         <ImageView
             android:id="@+id/door"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="80dp"
             android:src="@drawable/door"/>
 
         <LinearLayout
@@ -27,25 +27,25 @@
 
             <ImageView
                 android:id="@+id/secret_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/secret_pic"/>
 
             <ImageView
                 android:id="@+id/lettering"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/lettering"/>
 
             <ImageView
                 android:id="@+id/desk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/desk"/>
             <ImageView
                 android:id="@+id/mushroom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/mushroom"/>
         </LinearLayout>
         <ImageView

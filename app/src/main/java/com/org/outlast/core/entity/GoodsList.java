@@ -15,6 +15,8 @@ public class GoodsList extends Application {
     public List<Goods> getGoodsList() {
         return goodsList;
     }
+    /**物品栏中物品编号*/
+    public static int position = 10;
 
     public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
@@ -31,6 +33,16 @@ public class GoodsList extends Application {
         /**测试添加物品结束*/
         super.onCreate();
     }
+    /**
+     * 添加使用物品
+     */
+    public void addPosition(int position){
+        this.position = position;
+    }
+    public int getPosition(){
+        return position;
+    }
+
     /**
      * 获取物品
      */
