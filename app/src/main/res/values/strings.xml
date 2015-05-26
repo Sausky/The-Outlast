@@ -8,4 +8,7 @@
     <string name="title_activity_secret_pic_feature">Secret_pic_feature</string>
     <string name="title_activity_bed_lettering">Bed_lettering</string>
     <string name="title_activity_deposit">Deposit</string>
+    <string name="title_activity_secret_package">SecretPackage</string>
+    <string name="title_activity_drier">Drier</string>
+    <string name="title_activity_secret_error">SecretError</string>
 </resources>

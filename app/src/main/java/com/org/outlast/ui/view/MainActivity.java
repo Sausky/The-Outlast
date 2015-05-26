@@ -13,6 +13,7 @@ import com.org.outlast.R;
 import com.org.outlast.core.entity.Goods;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
+import com.org.outlast.ui.view.graphics.SecretPackage;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class MainActivity extends Activity {
     private ImageView desk;
     private ImageView bed;
     private ImageView deposit;
+    private ImageView secret_package;
     public GoodsList data;
     private List<Goods> goodsList;
     private Intent intent;
@@ -40,6 +42,14 @@ public class MainActivity extends Activity {
         initThings();
 
 
+        //进入密码箱特写
+        secret_package.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent.setClass(MainActivity.this, SecretPackage.class);
+                startActivity(intent);
+            }
+        });
         //传输物品栏数据
         deposit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,19 +131,12 @@ public class MainActivity extends Activity {
         desk = (ImageView)findViewById(R.id.desk);
         bed = (ImageView) findViewById(R.id.bed);
         deposit = (ImageView) findViewById(R.id.deposit);
+        secret_package = (ImageView) findViewById(R.id.secret_package);
         data = (GoodsList) getApplication();
         goodsList = data.getGoodsList();
         intent = new Intent();
     }
-    /**
-     * 获取物品
-     */
-    public void addGoods(String name,Integer source){
-        Goods goods = new Goods();
-        goods.setName(name);
-        goods.setSource(source);
-        goodsList.add(goods);
-    }
+
 
     @Override
     protected void onStart(){

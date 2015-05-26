@@ -31,4 +31,13 @@ public class GoodsList extends Application {
         /**测试添加物品结束*/
         super.onCreate();
     }
+    /**
+     * 获取物品
+     */
+    public void addGoods(String name,Integer source){
+        Goods goods = new Goods();
+        goods.setName(name);
+        goods.setSource(source);
+        goodsList.add(goods);
+    }
 }
