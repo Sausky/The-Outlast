@@ -60,16 +60,17 @@
             >
             <ImageView
                 android:id="@+id/bed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
                 android:src="@drawable/bed_unmoved"
                 />
         </LinearLayout>
         <ImageView
             android:id="@+id/socket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/socket"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/socket"
+            android:scaleType="centerCrop"/>
         <ImageView
             android:id="@+id/mirror"
             android:layout_height="wrap_content"

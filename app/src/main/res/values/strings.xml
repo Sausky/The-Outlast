@@ -11,4 +11,5 @@
     <string name="title_activity_secret_package">SecretPackage</string>
     <string name="title_activity_drier">Drier</string>
     <string name="title_activity_secret_error">SecretError</string>
+    <string name="title_activity_the_end_lettering">TheEndLettering</string>
 </resources>

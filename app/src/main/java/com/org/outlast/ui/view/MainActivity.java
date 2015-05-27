@@ -8,6 +8,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.org.outlast.R;
 import com.org.outlast.core.entity.Goods;
@@ -28,9 +29,11 @@ public class MainActivity extends Activity {
     private ImageView socket;
     public GoodsList data;
     private Intent intent;
-    private Handler handler;
+    private static Handler handler;
     /**床消息编号*/
     private int bed_number = 0;
+    /**插座消息*/
+    private int socket_number = 2;
 
     private CanvasRefresher girlView;
 
@@ -47,12 +50,39 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 int position = data.getPosition();
                 Log.v("position",String.valueOf(position));
+                //Unused Items
+                if(position == 10){
+                    //u can give some prompts or do nothing
+                }else if(position == 1){
+                    //choose the right thing
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            while (!Thread.currentThread().isInterrupted()){
+                                Message message = handler.obtainMessage();
+                                message.what = 2;
+                                handler.sendMessage(message);
+                            }
+                        }
+                    }).start();
+                }else{
+                    //the wrong usage
+                    data.addPosition(10);
+                    Toast.makeText(getApplicationContext(),"物品使用失败",Toast.LENGTH_LONG).show();
+                }
             }
         });
         //进入密码箱特写
         secret_package.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //the wrong usage of drier
+                if(data.getState()){
+                    Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT);
+                    data.updateState(false);
+                }
+
                 intent.setClass(MainActivity.this, SecretPackage.class);
                 startActivity(intent);
             }
@@ -93,10 +123,26 @@ public class MainActivity extends Activity {
                     bed.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            intent.setClass(MainActivity.this, Bed_lettering.class);
-                            startActivity(intent);
+                            if(data.getState()){
+                                data.updateState(false);
+                                intent.setClass(MainActivity.this,TheEndLettering.class);
+                                startActivity(intent);
+                            }else {
+                                intent.setClass(MainActivity.this, Bed_lettering.class);
+                                startActivity(intent);
+                            }
                         }
                     });
+                }else if(msg.what == 2){
+                    socket.setImageResource(R.drawable.drier);
+                    socket.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getApplicationContext(),"吹风机被启动了",Toast.LENGTH_SHORT).show();
+                            data.updateState(true);
+                        }
+                    });
+
                 }
                 super.handleMessage(msg);
             }

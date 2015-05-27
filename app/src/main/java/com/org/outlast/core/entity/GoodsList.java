@@ -17,6 +17,8 @@ public class GoodsList extends Application {
     }
     /**物品栏中物品编号*/
     public static int position = 10;
+    /**吹风机是否打开*/
+    public static boolean drier_state = false;
 
     public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
@@ -52,4 +54,10 @@ public class GoodsList extends Application {
         goods.setSource(source);
         goodsList.add(goods);
     }
+    /**get the state of drier*/
+    public boolean getState(){
+        return drier_state;
+    }
+    /**update the state of drier*/
+    public void updateState(boolean state){this.drier_state = state;}
 }

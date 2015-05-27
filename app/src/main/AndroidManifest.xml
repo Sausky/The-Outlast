@@ -65,7 +65,11 @@
             android:name=".ui.view.graphics.SecretError"
             android:label="@string/title_activity_secret_error"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ui.view.TheEndLettering"
+            android:label="@string/title_activity_the_end_lettering" >
         </activity>
     </application>
 
