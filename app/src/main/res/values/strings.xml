@@ -12,4 +12,5 @@
     <string name="title_activity_drier">Drier</string>
     <string name="title_activity_secret_error">SecretError</string>
     <string name="title_activity_the_end_lettering">TheEndLettering</string>
+    <string name="title_activity_mirror_hidden">The Notebook</string>
 </resources>

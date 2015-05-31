@@ -71,6 +71,12 @@
             android:name=".ui.view.TheEndLettering"
             android:label="@string/title_activity_the_end_lettering" >
         </activity>
+        <activity
+            android:name=".ui.view.mirror_hidden_thing"
+            android:label="@string/title_activity_mirror_hidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        </activity>
     </application>
 
 </manifest>

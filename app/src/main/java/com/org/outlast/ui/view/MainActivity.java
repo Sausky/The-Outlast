@@ -11,12 +11,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.org.outlast.R;
-import com.org.outlast.core.entity.Goods;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
 import com.org.outlast.ui.view.graphics.SecretPackage;
-
-import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -27,6 +24,7 @@ public class MainActivity extends Activity {
     private ImageView deposit;
     private ImageView secret_package;
     private ImageView socket;
+    private ImageView mirror;
     public GoodsList data;
     private Intent intent;
     private static Handler handler;
@@ -35,7 +33,18 @@ public class MainActivity extends Activity {
     /**插座消息*/
     private int socket_number = 2;
 
+//    specify the current using tool
+    private Tool current_tool;
+
+    private static boolean mirror_clicked = false;
+
     private CanvasRefresher girlView;
+
+//    the enum of tool
+    private enum Tool {
+        nothing,
+        screwdriver,    //螺丝刀
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +175,23 @@ public class MainActivity extends Activity {
             }
         });
 
+//        TODO set tool to screwdriver to test the click listener
+
+        current_tool = Tool.screwdriver;
+
+        //镜子的点击提示
+        mirror.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mirror_clicked && current_tool == Tool.screwdriver) {
+                    intent = new Intent(MainActivity.this, mirror_hidden_thing.class);
+                    startActivity(intent);
+
+                    mirror_clicked = true;
+                }
+            }
+        });
+
 
 //        call this method every time you want to move
         girlView.moveTo(300,300);
@@ -177,15 +203,16 @@ public class MainActivity extends Activity {
     /**
      * 初始化
      */
-    public void initThings(){
-        girlView = (CanvasRefresher)findViewById(R.id.girl_view);
+    public void initThings() {
+        girlView = (CanvasRefresher) findViewById(R.id.girl_view);
         door = (ImageView) findViewById(R.id.door);
         secret_pic = (ImageView) findViewById(R.id.secret_pic);
-        desk = (ImageView)findViewById(R.id.desk);
+        desk = (ImageView) findViewById(R.id.desk);
         bed = (ImageView) findViewById(R.id.bed);
         deposit = (ImageView) findViewById(R.id.deposit);
         secret_package = (ImageView) findViewById(R.id.secret_package);
         socket = (ImageView) findViewById(R.id.socket);
+        mirror = (ImageView) findViewById(R.id.mirror);
         data = (GoodsList) getApplication();
         intent = new Intent();
     }
