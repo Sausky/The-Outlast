@@ -32,6 +32,12 @@ public class MainActivity extends Activity {
     private int bed_number = 0;
     /**插座消息*/
     private int socket_number = 2;
+    /**密码箱消息*/
+    private int secret_package_message = 3;
+    /**吹风机的编号*/
+    private int drier_position = 0;
+    /**未在使用任何物品*/
+    private int nothing_use = 10;
 
 //    specify the current using tool
     private Tool current_tool;
@@ -58,44 +64,58 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 int position = data.getPosition();
-                Log.v("position",String.valueOf(position));
+                Log.v("position", String.valueOf(position));
                 //Unused Items
-                if(position == 10){
+                if (position == nothing_use) {
                     //u can give some prompts or do nothing
-                }else if(position == 1){
+                } else if (position == drier_position) {
                     //choose the right thing
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            while (!Thread.currentThread().isInterrupted()){
+                            while (!Thread.currentThread().isInterrupted()) {
+                                data.removeThing(drier_position);
                                 Message message = handler.obtainMessage();
-                                message.what = 2;
+                                message.what = socket_number;
                                 handler.sendMessage(message);
                             }
                         }
                     }).start();
-                }else{
+                } else {
                     //the wrong usage
-                    data.addPosition(10);
-                    Toast.makeText(getApplicationContext(),"物品使用失败",Toast.LENGTH_LONG).show();
+                    data.addPosition(nothing_use);
+                    Toast.makeText(getApplicationContext(), "物品使用失败", Toast.LENGTH_LONG).show();
                 }
             }
         });
-        //进入密码箱特写
-        secret_package.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //the wrong usage of drier
-                if(data.getState()){
-                    Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT);
-                    data.updateState(false);
-                }
+            //进入密码箱特写
+            secret_package.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //是否获得吹风机
+                    if(!data.getDrier()){
+                    //the wrong usage of drier
+                    if(data.getState()){
+                        Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT);
+                        data.updateState(false);
+                    }
 
-                intent.setClass(MainActivity.this, SecretPackage.class);
-                startActivity(intent);
-            }
-        });
+                    intent.setClass(MainActivity.this, SecretPackage.class);
+                    startActivity(intent);
+                }else {
+                        //更换图片（密码箱打开）
+                        secret_package.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Message message = handler.obtainMessage();
+                                message.what = secret_package_message;
+                                handler.sendMessage(message);
+                            }
+                        });
+                    }
+            }});
+
         //传输物品栏数据
         deposit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +163,7 @@ public class MainActivity extends Activity {
                         }
                     });
                 }else if(msg.what == 2){
+
                     socket.setImageResource(R.drawable.drier);
                     socket.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -152,6 +173,9 @@ public class MainActivity extends Activity {
                         }
                     });
 
+                }else if(msg.what == secret_package_message){
+                    secret_package.setImageResource(R.drawable.package_open);
+                    secret_package.setClickable(false);
                 }
                 super.handleMessage(msg);
             }
