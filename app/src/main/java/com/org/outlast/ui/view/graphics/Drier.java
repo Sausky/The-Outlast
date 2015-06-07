@@ -30,6 +30,7 @@ public class Drier extends Activity {
         data = (GoodsList) getApplication();
         //addGoods
         data.addGoods("drier",R.drawable.drier);
+        data.updateDrier(true);
         clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
