@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.org.outlast.R;
+import com.org.outlast.core.entity.CurrentTool;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
 import com.org.outlast.ui.view.graphics.SecretPackage;
@@ -36,21 +37,15 @@ public class MainActivity extends Activity {
     private int secret_package_message = 3;
     /**吹风机的编号*/
     private int drier_position = 0;
+    /*螺丝刀的编号*/
+    private int screwdriver_position = 4;
     /**未在使用任何物品*/
     private int nothing_use = 10;
 
-//    specify the current using tool
-    private Tool current_tool;
 
     private static boolean mirror_clicked = false;
 
     private CanvasRefresher girlView;
-
-//    the enum of tool
-    private enum Tool {
-        nothing,
-        screwdriver,    //螺丝刀
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,20 +194,23 @@ public class MainActivity extends Activity {
             }
         });
 
-//        TODO set tool to screwdriver to test the click listener
 
-        current_tool = Tool.screwdriver;
+        CurrentTool.setCurrentTool((String)mirror.getTag());
 
+
+        data.addGoods("mirror",R.drawable.mirror);
         //镜子的点击提示
         mirror.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mirror_clicked && current_tool == Tool.screwdriver) {
-                    intent = new Intent(MainActivity.this, mirror_hidden_thing.class);
-                    startActivity(intent);
+//                if (!mirror_clicked && screwdriver_position==data.getPosition()) {
+                if (!mirror_clicked && CurrentTool.getCurrentTool().equals((String)bed.getTag())) {
+                        intent = new Intent(MainActivity.this, mirror_hidden_thing.class);
+                        startActivity(intent);
 
-                    mirror_clicked = true;
+                        mirror_clicked = true;
                 }
+
             }
         });
 

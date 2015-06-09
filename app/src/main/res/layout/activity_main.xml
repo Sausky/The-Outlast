@@ -63,6 +63,7 @@
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:src="@drawable/bed_unmoved"
+                android:tag="@string/bed_tool_name"
                 />
         </LinearLayout>
         <ImageView
@@ -75,7 +76,8 @@
             android:id="@+id/mirror"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/mirror"/>
+            android:src="@drawable/mirror"
+            android:tag="@string/mirror_tool_name"/>
     </LinearLayout>
 
 
