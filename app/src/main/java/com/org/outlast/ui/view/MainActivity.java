@@ -2,6 +2,9 @@ package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.org.outlast.R;
 import com.org.outlast.core.entity.CurrentTool;
@@ -46,6 +50,10 @@ public class MainActivity extends Activity {
     private static boolean mirror_clicked = false;
 
     private CanvasRefresher girlView;
+
+    private Bitmap girl;
+
+    private LinearLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -237,6 +245,7 @@ public class MainActivity extends Activity {
         mirror = (ImageView) findViewById(R.id.mirror);
         data = (GoodsList) getApplication();
         intent = new Intent();
+
     }
 
 

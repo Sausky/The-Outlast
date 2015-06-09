@@ -41,7 +41,6 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
     * */
     private Boolean changing = false;
 
-
     private int GirlW,GirlH;
 
     private int controll_flag = 0;
@@ -85,6 +84,7 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
         GirlW = imageResource.girl_width;
         GirlH = imageResource.girl_height;
 
+
     }
 
     @Override
@@ -114,6 +114,7 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
         synchronized (changing) {
             try {
                 changing.wait();
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -226,7 +227,5 @@ public class GirlSurfaceView extends SurfaceView implements Callback, Runnable {
     }
     public void surfaceDestroyed(SurfaceHolder holder) {
     }
-
-
 
 }
