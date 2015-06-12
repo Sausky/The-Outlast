@@ -14,9 +14,14 @@
             android:layout_width="wrap_content"
             android:src="@drawable/deposit"/>
         <ImageView
+            android:id="@+id/deposit"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/deposit"/>
+        <ImageView
             android:id="@+id/door"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="80dp"
             android:src="@drawable/door"/>
 
         <LinearLayout
@@ -27,25 +32,25 @@
 
             <ImageView
                 android:id="@+id/secret_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/secret_pic"/>
 
             <ImageView
                 android:id="@+id/lettering"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/lettering"/>
 
             <ImageView
                 android:id="@+id/desk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/desk"/>
             <ImageView
                 android:id="@+id/mushroom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/mushroom"/>
         </LinearLayout>
         <ImageView
@@ -60,30 +65,33 @@
             >
             <ImageView
                 android:id="@+id/bed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
                 android:src="@drawable/bed_unmoved"
+                android:tag="@string/bed_tool_name"
                 />
         </LinearLayout>
         <ImageView
             android:id="@+id/socket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/socket"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/socket"
+            android:scaleType="centerCrop"/>
         <ImageView
             android:id="@+id/mirror"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:src="@drawable/mirror"/>
+            android:src="@drawable/mirror"
+            android:tag="@string/mirror_tool_name"/>
     </LinearLayout>
 
 
 
-    <com.org.outlast.ui.view.GirlSurfaceView
+    <com.org.outlast.ui.view.animationMove.CanvasRefresher
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:layout_below="@+id/mirror">
-    </com.org.outlast.ui.view.GirlSurfaceView>
+        android:id="@+id/girl_view">
+    </com.org.outlast.ui.view.animationMove.CanvasRefresher>
 
 </FrameLayout>
