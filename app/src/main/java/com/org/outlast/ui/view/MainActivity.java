@@ -3,8 +3,6 @@ package com.org.outlast.ui.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -248,6 +246,9 @@ public class MainActivity extends Activity {
 
     }
 
+    /**
+     * 获取物品栏数据
+     * */
 
     @Override
     protected void onStart(){
