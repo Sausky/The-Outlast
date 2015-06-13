@@ -15,9 +15,11 @@ public class MyAdapter extends BaseAdapter {
     //上下文对象
     private Context context;
     private int[] imgs;
-    public MyAdapter(Context context,int[] imgs){
+    private String[] tag;
+    public MyAdapter(Context context,int[] imgs,String[] tag){
         this.imgs = imgs;
         this.context = context;
+        this.tag = tag;
     }
     public int getCount() {
         return imgs.length;
@@ -45,6 +47,7 @@ public class MyAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
         imageView.setImageResource(imgs[position]);//为ImageView设置图片资源
+        imageView.setTag(tag[position]);
         return imageView;
     }
 }

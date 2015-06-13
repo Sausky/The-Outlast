@@ -21,6 +21,8 @@ public class GoodsList extends Application {
     public static boolean drier_state = false;
     /**是否获得吹风机*/
     public static boolean drier_get = false;
+    /**物品栏中选择物品的表示*/
+    public static String name = "none";
 
     public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
@@ -39,12 +41,22 @@ public class GoodsList extends Application {
     }
     /**
      * 添加使用物品
+//     */
+//    public void addPosition(int position){
+//        this.position = position;
+//    }
+//    public int getPosition(){
+//        return position;
+//    }
+    /**
+     * 使用物品
      */
-    public void addPosition(int position){
-        this.position = position;
+    public static String getName() {
+        return name;
     }
-    public int getPosition(){
-        return position;
+
+    public static void setName(String name) {
+        GoodsList.name = name;
     }
 
     /**
@@ -60,8 +72,12 @@ public class GoodsList extends Application {
     /**
      * remove thing
      */
-    public void removeThing(int position){
-        goodsList.remove(position);
+    public void removeThing(String name){
+        for(int i = 0; i < goodsList.size();i++){
+            if(goodsList.get(i).getName().equals(name)){
+                goodsList.remove(i);
+            }
+        }
     }
     /**get the state of drier*/
     public boolean getState(){

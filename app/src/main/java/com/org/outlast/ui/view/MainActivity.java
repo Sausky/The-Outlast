@@ -37,12 +37,12 @@ public class MainActivity extends Activity {
     private int socket_number = 2;
     /**密码箱消息*/
     private int secret_package_message = 3;
-    /**吹风机的编号*/
-    private int drier_position = 0;
-    /*螺丝刀的编号*/
+    /**吹风机的标识*/
+    private String drier = "drier";
+    /**螺丝刀的编号*/
     private int screwdriver_position = 4;
     /**未在使用任何物品*/
-    private int nothing_use = 10;
+    private String nothing_use = "none";
 
 
     private static boolean mirror_clicked = false;
@@ -59,32 +59,40 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         initThings();
-
+        //为门设置透明
+//        door.setAlpha(0);
+//        door.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"door",Toast.LENGTH_LONG).show();
+//            }
+//        });
         //插座
         socket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = data.getPosition();
-                Log.v("position", String.valueOf(position));
+                String name = data.getName();
+                Log.v("name", String.valueOf(name));
                 //Unused Items
-                if (position == nothing_use) {
+                if (name == nothing_use) {
                     //u can give some prompts or do nothing
-                } else if (position == drier_position) {
+                } else if (name.equals(drier)) {
                     //choose the right thing
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             while (!Thread.currentThread().isInterrupted()) {
-                                data.removeThing(drier_position);
+                                data.removeThing(drier);
                                 Message message = handler.obtainMessage();
                                 message.what = socket_number;
                                 handler.sendMessage(message);
+                                data.setName(nothing_use);
                             }
                         }
                     }).start();
                 } else {
                     //the wrong usage
-                    data.addPosition(nothing_use);
+                    data.setName(nothing_use);
                     Toast.makeText(getApplicationContext(), "物品使用失败", Toast.LENGTH_LONG).show();
                 }
             }
@@ -98,7 +106,7 @@ public class MainActivity extends Activity {
                     if(!data.getDrier()){
                     //the wrong usage of drier
                     if(data.getState()){
-                        Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT);
+                        Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT).show();
                         data.updateState(false);
                     }
 
@@ -109,9 +117,8 @@ public class MainActivity extends Activity {
                         secret_package.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Message message = handler.obtainMessage();
-                                message.what = secret_package_message;
-                                handler.sendMessage(message);
+                                secret_package.setImageResource(R.drawable.package_open);
+                                secret_package.setClickable(false);
                             }
                         });
                     }
@@ -174,9 +181,6 @@ public class MainActivity extends Activity {
                         }
                     });
 
-                }else if(msg.what == secret_package_message){
-                    secret_package.setImageResource(R.drawable.package_open);
-                    secret_package.setClickable(false);
                 }
                 super.handleMessage(msg);
             }
