@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import com.org.outlast.R;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
+import com.org.outlast.ui.view.graphics.Screwdriver;
 import com.org.outlast.ui.view.graphics.SecretPackage;
 
 
@@ -104,30 +105,28 @@ public class MainActivity extends Activity {
         });
 
             //进入密码箱特写
-            secret_package.setOnClickListener(new View.OnClickListener() {
+        Log.v("tag!!!",String.valueOf(data.getDrier()));
+            if(data.getDrier()){
+                secret_package.setImageResource(R.drawable.package_open);
+                secret_package.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(data.getState()){
+                            Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT).show();
+                            data.updateState(false);
+                        }
+                    }
+                });
+
+            }else{
+                secret_package.setImageResource(R.drawable.secret_package);
+                secret_package.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //是否获得吹风机
-                    if(!data.getDrier()){
-                    //the wrong usage of drier
-                    if(data.getState()){
-                        Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT).show();
-                        data.updateState(false);
-                    }
-
                     intent.setClass(MainActivity.this, SecretPackage.class);
                     startActivity(intent);
-                }else {
-                        //更换图片（密码箱打开）
-                        secret_package.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                secret_package.setImageResource(R.drawable.package_open);
-                                secret_package.setClickable(false);
-                            }
-                        });
-                    }
-            }});
+                }
+            });}
 
         //传输物品栏数据
         deposit.setOnClickListener(new View.OnClickListener() {
@@ -243,6 +242,9 @@ public class MainActivity extends Activity {
                     data.addGoods(SCREWDRIVER_NAME, R.drawable.screwdriver);
                     ((ViewManager) screwdriver.getParent()).removeView(screwdriver);
                     screwdriver_found = true;
+                    intent.setClass(MainActivity.this, Screwdriver.class);
+                    startActivity(intent);
+
                 }
             });
         }
@@ -301,10 +303,12 @@ public class MainActivity extends Activity {
 
     protected void onRestart(){
         super.onRestart();
+        data.updateDrier(false);
     }
 
 
     protected void onDestroy(){
         super.onDestroy();
+        data.updateDrier(false);
     }
 }

@@ -57,9 +57,8 @@
         </LinearLayout>
         <ImageView
             android:id="@+id/secret_package"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/secret_package"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
             android:tag="secret_package"/>
         <LinearLayout
             android:layout_width="wrap_content"

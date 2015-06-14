@@ -18,9 +18,9 @@ public class GoodsList extends Application {
     /**物品栏中物品编号*/
     public static int position = 10;
     /**吹风机是否打开*/
-    public static boolean drier_state = false;
+    public static boolean drier_state;
     /**是否获得吹风机*/
-    public static boolean drier_get = false;
+    public static boolean drier_get;
     /**物品栏中选择物品的表示*/
     public static String name = "none";
 
@@ -31,6 +31,14 @@ public class GoodsList extends Application {
     @Override
     public void onCreate() {
         goodsList = new ArrayList<Goods>();
+        for(int i = 0; i < goodsList.size(); i++){
+            if(goodsList.get(i).getName().equals("drier"))
+            drier_get = true;
+            else{
+                drier_get = false;
+            }
+        }
+        drier_state = false;
         /**测试添加物品开始*/
 //        Goods goods = new Goods();
 //        goods.setName("screwdriver");
@@ -89,5 +97,5 @@ public class GoodsList extends Application {
     /**get the state of get drier*/
     public  boolean getDrier(){ return  drier_get;}
     /**update the state of drier*/
-    public void updateDrier(boolean drier_get){ this.drier_get = drier_get;};
+    public void updateDrier(boolean drier_get){ this.drier_get = drier_get;}
 }

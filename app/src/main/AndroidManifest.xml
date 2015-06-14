@@ -3,11 +3,11 @@
     package="com.org.outlast" >
 
     <application
+        android:name=".core.entity.GoodsList"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-        android:name=".core.entity.GoodsList">
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         <activity
             android:name=".ui.view.MainActivity"
             android:label="@string/app_name"
@@ -64,7 +64,11 @@
             android:name=".ui.view.mirror_hidden_thing"
             android:label="@string/title_activity_mirror_hidden"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name=".ui.view.graphics.Screwdriver"
+            android:label="@string/title_activity_screwdriver" >
         </activity>
     </application>
 
