@@ -8,12 +8,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.LinearLayout;
 
 import com.org.outlast.R;
-import com.org.outlast.core.entity.CurrentTool;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
 import com.org.outlast.ui.view.graphics.SecretPackage;
@@ -28,6 +28,8 @@ public class MainActivity extends Activity {
     private ImageView secret_package;
     private ImageView socket;
     private ImageView mirror;
+    private ImageView screwdriver;
+
     public GoodsList data;
     private Intent intent;
     private static Handler handler;
@@ -45,7 +47,10 @@ public class MainActivity extends Activity {
     private String nothing_use = "none";
 
 
-    private static boolean mirror_clicked = false;
+    private static boolean mirror_searched = false;
+    private static boolean screwdriver_found = false;
+
+    private static final String SCREWDRIVER_NAME = "screwdriver";
 
     private CanvasRefresher girlView;
 
@@ -205,30 +210,48 @@ public class MainActivity extends Activity {
         });
 
 
-        CurrentTool.setCurrentTool((String)mirror.getTag());
 
-
-        data.addGoods("mirror",R.drawable.mirror);
         //镜子的点击提示
         mirror.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (!mirror_clicked && screwdriver_position==data.getPosition()) {
-                if (!mirror_clicked && CurrentTool.getCurrentTool().equals((String)bed.getTag())) {
-                        intent = new Intent(MainActivity.this, mirror_hidden_thing.class);
-                        startActivity(intent);
+                if (!mirror_searched && GoodsList.getName().equals(SCREWDRIVER_NAME)) {
+                    intent = new Intent(MainActivity.this, mirror_hidden_thing.class);
+                    startActivity(intent);
 
-                        mirror_clicked = true;
+                    mirror_searched = true;
+                    data.removeThing(SCREWDRIVER_NAME);
+                }else if(mirror_searched){
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(getApplicationContext(), "里面看起来空空如也", duration);
+                    toast.show();
+                }else{
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(getApplicationContext(), "当前工具好像对镜子没什么用", duration);
+                    toast.show();
                 }
 
             }
         });
 
+        if (screwdriver_found)
+            ((ViewManager)screwdriver.getParent()).removeView(screwdriver);
+        else {
+            screwdriver.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    data.addGoods(SCREWDRIVER_NAME, R.drawable.screwdriver);
+                    ((ViewManager) screwdriver.getParent()).removeView(screwdriver);
+                    screwdriver_found = true;
+                }
+            });
+        }
+
 
 //        call this method every time you want to move
-        girlView.moveTo(300,300);
+        girlView.moveTo(300, 300);
 
-        girlView.moveTo(300,0);
+        girlView.moveTo(300, 0);
 
     }
 
@@ -245,6 +268,8 @@ public class MainActivity extends Activity {
         secret_package = (ImageView) findViewById(R.id.secret_package);
         socket = (ImageView) findViewById(R.id.socket);
         mirror = (ImageView) findViewById(R.id.mirror);
+        screwdriver = (ImageView) findViewById(R.id.screwdriver);
+
         data = (GoodsList) getApplication();
         intent = new Intent();
 

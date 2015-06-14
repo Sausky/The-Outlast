@@ -42,6 +42,13 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/desk"/>
+
+            <ImageView
+                android:id="@+id/screwdriver"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/screwdriver"/>
+
             <ImageView
                 android:id="@+id/mushroom"
                 android:layout_width="20dp"
