@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
                 public void onClick(View v) {
                     //是否获得吹风机
                     if(!data.getDrier()){
-                    //the wrong usage of drier
+                    //the wrong usage of
                     if(data.getState()){
                         Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT).show();
                         data.updateState(false);

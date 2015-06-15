@@ -15,24 +15,20 @@ import java.util.ArrayList;
 public class AnimationTimeline {
 
     private static final ArrayList<Integer> pics = new ArrayList<Integer>(){{
-        add(R.drawable.anim2);
-        add(R.drawable.anim2);
-        add(R.drawable.anim3);
-        add(R.drawable.anim4);
-        add(R.drawable.anim5);
-        add(R.drawable.anim6);
-        add(R.drawable.anim7);
-        add(R.drawable.anim8);
+        add(R.drawable.background);
+        add(R.drawable.background);
+//        add(R.drawable.help);
+//        add(R.drawable.prompt_1);
+//        add(R.drawable.prompt_2);
+//        add(R.drawable.prompt_4);
     }};
 
     private static final ArrayList<Integer> anims = new ArrayList<Integer>(){{
         add(R.anim.next_spot);
         add(R.anim.shake);
-        add(R.anim.next_spot);
-        add(R.anim.next_spot);
-        add(R.anim.next_spot);
-        add(R.anim.next_spot);
-        add(R.anim.next_spot);
+//        add(R.anim.next_spot);
+//        add(R.anim.next_spot);
+//        add(R.anim.next_spot);
     }};
 
     private static int size = anims.size();

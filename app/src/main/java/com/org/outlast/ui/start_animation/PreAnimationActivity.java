@@ -1,6 +1,7 @@
 package com.org.outlast.ui.start_animation;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -8,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.org.outlast.R;
+import com.org.outlast.ui.view.MainActivity;
 
 public class PreAnimationActivity extends Activity implements View.OnClickListener {
     @Override
@@ -29,7 +31,10 @@ public class PreAnimationActivity extends Activity implements View.OnClickListen
             view.startAnimation(alphaAnim);
             AnimationTimeline.next();
         }else{
-//            TODO 从开场动画跳转到游戏开始操作的界面
+            Intent intent = new Intent();
+            intent.setClass(PreAnimationActivity.this, MainActivity.class);
+            startActivity(intent);
+
         }
     }
 
