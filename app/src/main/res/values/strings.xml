@@ -17,4 +17,5 @@
 
     <string name="bed_tool_name">the bed</string>
     <string name="mirror_tool_name">the mirror</string>
+    <string name="title_activity_pre_animation">PreAnimationActivity</string>
 </resources>
