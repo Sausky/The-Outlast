@@ -1,0 +1,18 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="horizontal"
+    android:background="#b0000000">
+    <ImageView
+        android:id="@+id/the_end_lettering"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/the_end_letter" />
+
+
+
+
+</LinearLayout>

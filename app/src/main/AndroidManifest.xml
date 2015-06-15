@@ -3,12 +3,11 @@
     package="com.org.outlast" >
 
     <application
+        android:name=".core.entity.GoodsList"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-
-        >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         <activity
             android:name=".ui.view.MainActivity"
             android:label="@string/app_name"
@@ -38,11 +37,38 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
-            android:name=".ui.view.Tools"
-            android:label="@string/title_activity_tools"
+            android:name=".ui.view.Deposit"
+            android:label="@string/title_activity_deposit"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ui.view.graphics.SecretPackage"
+            android:label="@string/title_activity_secret_package" >
+        </activity>
+        <activity
+            android:name=".ui.view.graphics.Drier"
+            android:label="@string/title_activity_drier" >
+        </activity>
+        <activity
+            android:name=".ui.view.graphics.SecretError"
+            android:label="@string/title_activity_secret_error"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".ui.view.TheEndLettering"
+            android:label="@string/title_activity_the_end_lettering" >
+        </activity>
+        <activity
+            android:name=".ui.view.mirror_hidden_thing"
+            android:label="@string/title_activity_mirror_hidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name=".ui.view.graphics.Screwdriver"
+            android:label="@string/title_activity_screwdriver" >
         </activity>
     </application>
 
