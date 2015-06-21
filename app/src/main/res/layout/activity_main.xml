@@ -69,7 +69,7 @@
             android:layout_height="200dp"
             android:layout_width="80dp"
             android:src="@drawable/secret_package_close"
-            android:tag="secret_package"/>
+            />
 
 
 
@@ -83,14 +83,14 @@
                 android:layout_height="80dp"
                 android:layout_width="80dp"
                 android:src="@drawable/mirror"
-                android:tag="@string/mirror_tool_name"/>
+                />
             <ImageView
                 android:id="@+id/bed"
                 android:scaleType="fitStart"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
                 android:src="@drawable/bed_unmoved"
-                android:tag="@string/bed_tool_name"
+
                 />
             <ImageView
                 android:id="@+id/deposit"
