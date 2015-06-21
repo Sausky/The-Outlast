@@ -16,13 +16,17 @@ public class GoodsList extends Application {
         return goodsList;
     }
     /**物品栏中物品编号*/
-    public static int position = 10;
+    public  int position = 10;
     /**吹风机是否打开*/
-    public static boolean drier_state = false;
+    public  boolean drier_state = false;
     /**是否获得吹风机*/
-    public static boolean drier_get = false;
+    public  boolean drier_get = false;
     /**物品栏中选择物品的表示*/
-    public static String name = "none";
+    public  String name = "none";
+    /**是否获得最终的密码*/
+    public  boolean door_state = false;
+    /**是否获得铲子*/
+    public  boolean shovel_state = false;
 
     public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
@@ -39,24 +43,32 @@ public class GoodsList extends Application {
         /**测试添加物品结束*/
         super.onCreate();
     }
-    /**
-     * 添加使用物品
-//     */
-//    public void addPosition(int position){
-//        this.position = position;
-//    }
-//    public int getPosition(){
-//        return position;
-//    }
+
+    public  boolean isShovel_state() {
+        return shovel_state;
+    }
+
+    public  void setShovel_state(boolean shovel_state) {
+        this.shovel_state = shovel_state;
+    }
+
+    public  boolean isDoor_state() {
+        return door_state;
+    }
+
+    public  void setDoor_state(boolean door_state) {
+        this.door_state = door_state;
+    }
+
     /**
      * 使用物品
      */
-    public static String getName() {
+    public  String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        GoodsList.name = name;
+    public  void setName(String name) {
+        this.name = name;
     }
 
     /**

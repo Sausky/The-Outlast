@@ -17,18 +17,17 @@ public class AnimationTimeline {
     private static final ArrayList<Integer> pics = new ArrayList<Integer>(){{
         add(R.drawable.background);
         add(R.drawable.background);
-//        add(R.drawable.help);
-//        add(R.drawable.prompt_1);
-//        add(R.drawable.prompt_2);
-//        add(R.drawable.prompt_4);
+        add(R.drawable.prompt_1);
+        add(R.drawable.prompt_2);
+        add(R.drawable.prompt_3);
     }};
 
     private static final ArrayList<Integer> anims = new ArrayList<Integer>(){{
         add(R.anim.next_spot);
         add(R.anim.shake);
-//        add(R.anim.next_spot);
-//        add(R.anim.next_spot);
-//        add(R.anim.next_spot);
+        add(R.anim.next_spot);
+        add(R.anim.next_spot);
+        add(R.anim.next_spot);
     }};
 
     private static int size = anims.size();

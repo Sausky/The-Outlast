@@ -3,10 +3,10 @@
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     android:orientation="vertical">
-    <ImageView android:id="@+id/drier"
+    <ImageView android:id="@+id/shovel"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/drier"
+        android:src="@drawable/shovel"
         android:layout_gravity="center_horizontal"/>
     <RelativeLayout
         android:layout_gravity="center_horizontal"
@@ -22,6 +22,6 @@
             android:padding="20dp"
             android:layout_height="80dp"
             android:layout_width="150dp"
-            android:src="@drawable/get_screw"/>
+            android:src="@drawable/get_shovel"/>
     </RelativeLayout>
 </LinearLayout>

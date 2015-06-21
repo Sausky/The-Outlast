@@ -1,4 +1,4 @@
-package com.org.outlast.ui.view.graphics;
+package com.org.outlast.ui.view;
 
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
@@ -10,20 +10,19 @@ import android.widget.ImageView;
 
 import com.org.outlast.R;
 
-public class SecretError extends Activity {
-    private ImageView prompt;
+public class LetteringDesk extends Activity {
+    ImageView lettering;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_secret_error);
-        prompt = (ImageView) findViewById(R.id.info_secret);
-        prompt.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_lettering_desk);
+        lettering = (ImageView) findViewById(R.id.the_end_lettering);
+        lettering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
 
 }
