@@ -1,20 +1,26 @@
 package com.org.outlast.ui.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.org.outlast.R;
+import com.org.outlast.UIDecoder;
 import com.org.outlast.core.entity.Goods;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.widget.MyAdapter;
@@ -32,6 +38,12 @@ public class Deposit extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit);
+
+        GridView gridView = (GridView)findViewById(R.id.goodsGrid);
+
+        UIDecoder.setBackground(gridView,getResources(),R.drawable.deposit_background,300,300);
+
+
         data = (GoodsList) getApplication();
         goodsList = data.getGoodsList();
         imgs = new int[20];
@@ -86,14 +98,6 @@ public class Deposit extends Activity{
 
          }
          });
-        //返回主界面
-//        back = (ImageView) findViewById(R.id.back);
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
     }
 
 }
