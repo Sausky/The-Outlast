@@ -2,6 +2,7 @@ package com.org.outlast.ui.view.graphics;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,12 +14,13 @@ import android.widget.TextView;
 import com.org.outlast.R;
 import com.org.outlast.core.entity.Goods;
 import com.org.outlast.core.entity.GoodsList;
+import com.org.outlast.ui.view.MainActivity;
 
 import java.util.List;
 
 public class Drier extends Activity {
     private ImageView drier;
-    private TextView tv;
+    private ImageView tv;
     public View.OnClickListener clickListener;
     public GoodsList data;
     @Override
@@ -26,7 +28,7 @@ public class Drier extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drier);
         drier = (ImageView) findViewById(R.id.drier);
-        tv = (TextView) findViewById(R.id.tv);
+        tv = (ImageView) findViewById(R.id.tv);
         data = (GoodsList) getApplication();
         //addGoods
         data.addGoods("drier",R.drawable.drier);
@@ -34,7 +36,9 @@ public class Drier extends Activity {
         clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent();
+                intent.setClass(Drier.this, MainActivity.class);
+                startActivity(intent);
             }
         };
         drier.setOnClickListener(clickListener);

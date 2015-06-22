@@ -18,4 +18,9 @@
     <string name="bed_tool_name">the bed</string>
     <string name="mirror_tool_name">the mirror</string>
     <string name="title_activity_pre_animation">PreAnimationActivity</string>
+    <string name="title_activity_end">EndActivity</string>
+    <string name="title_activity_lettering_desk">LetteringDesk</string>
+    <string name="title_activity_shovel">Shovel</string>
+    <string name="title_activity_ring">Ring</string>
+    <string name="title_activity_ring_big">RingBig</string>
 </resources>

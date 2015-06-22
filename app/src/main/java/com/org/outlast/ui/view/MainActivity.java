@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
     private ImageView socket;
     private ImageView mirror;
     private ImageView screwdriver;
+    private ImageView mushroom;
 
     public GoodsList data;
     private Intent intent;
@@ -57,6 +58,7 @@ public class MainActivity extends Activity {
     private Bitmap girl;
 
     private LinearLayout background;
+    private int[] postion = new int[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +66,37 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         initThings();
+        mushroom = (ImageView) findViewById(R.id.mushroom);
+        //挖起蘑菇
+        mushroom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = data.getName();
+                if(name == nothing_use){
+                    Toast.makeText(getApplication(),"如果有铲子我可以挖开它！",Toast.LENGTH_SHORT).show();
+                }else if(name.equals("shovel")){
+                    data.setName(nothing_use);
+                    intent.setClass(MainActivity.this,Ring.class);
+                    mushroom.setClickable(false);
+                    mushroom.setAlpha(0);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getApplication(),"这个东西可挖不了蘑菇呀！",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         //为门设置透明
-//        door.setAlpha(0);
-//        door.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(),"door",Toast.LENGTH_LONG).show();
-//            }
-//        });
+        door.setAlpha(0);
+        door.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if(data.isDoor_state()){
+
+                }
+                Toast.makeText(getApplicationContext(),"door",Toast.LENGTH_LONG).show();
+            }
+        });
         //插座
         socket.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,36 +123,40 @@ public class MainActivity extends Activity {
                 } else {
                     //the wrong usage
                     data.setName(nothing_use);
-                    Toast.makeText(getApplicationContext(), "物品使用失败", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "这个可不能用在插座上呀", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
             //进入密码箱特写
-            secret_package.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+
+
                     //是否获得吹风机
                     if(!data.getDrier()){
-                    //the wrong usage of drier
-                    if(data.getState()){
-                        Toast.makeText(getApplicationContext(),"加热了密码箱，但是没有什么反应",Toast.LENGTH_SHORT).show();
-                        data.updateState(false);
-                    }
-
-                    intent.setClass(MainActivity.this, SecretPackage.class);
-                    startActivity(intent);
-                }else {
-                        //更换图片（密码箱打开）
                         secret_package.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                secret_package.setImageResource(R.drawable.package_open);
-                                secret_package.setClickable(false);
+
+                        intent.setClass(MainActivity.this, SecretPackage.class);
+                        startActivity(intent);
                             }
                         });
+                }else {
+                        //更换图片（密码箱打开）
+                        secret_package.setImageResource(R.drawable.package_open);
+                        secret_package.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (data.getState()) {
+                                    Toast.makeText(getApplicationContext(), "加热了密码箱，但是没有什么反应", Toast.LENGTH_SHORT).show();
+                                    data.updateState(false);
+                                } else {
+                                    Toast.makeText(getApplication(), "里面已空空如也", Toast.LENGTH_SHORT);
+                                }
+                            }
+                        });
+
                     }
-            }});
 
         //传输物品栏数据
         deposit.setOnClickListener(new View.OnClickListener() {
@@ -177,7 +206,7 @@ public class MainActivity extends Activity {
                     });
                 }else if(msg.what == 2){
 
-                    socket.setImageResource(R.drawable.drier);
+                    socket.setImageResource(R.drawable.socket_drier);
                     socket.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -200,22 +229,26 @@ public class MainActivity extends Activity {
             }
         });
         //桌子的点击提示
-        desk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent();
-                intent.setClass(MainActivity.this, desk_prompt.class);
-                startActivity(intent);
-            }
-        });
-
+        if(data.isShovel_state()){
+            desk.setImageResource(R.drawable.desk_open);
+        }else {
+            desk.setImageResource(R.drawable.desk_with_carve_closed);
+            desk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent = new Intent();
+                    intent.setClass(MainActivity.this, desk_prompt.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
 
         //镜子的点击提示
         mirror.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mirror_searched && GoodsList.getName().equals(SCREWDRIVER_NAME)) {
+                if (!mirror_searched && data.getName().equals(SCREWDRIVER_NAME)) {
                     intent = new Intent(MainActivity.this, mirror_hidden_thing.class);
                     startActivity(intent);
 
@@ -240,18 +273,19 @@ public class MainActivity extends Activity {
             screwdriver.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    data.addGoods(SCREWDRIVER_NAME, R.drawable.screwdriver);
+                    data.addGoods(SCREWDRIVER_NAME, R.drawable.screwdriver_big);
                     ((ViewManager) screwdriver.getParent()).removeView(screwdriver);
                     screwdriver_found = true;
+                    Toast.makeText(getApplication(),"获得螺丝刀！",Toast.LENGTH_SHORT).show();
                 }
             });
         }
 
 
 //        call this method every time you want to move
-        girlView.moveTo(300, 300);
-
-        girlView.moveTo(300, 0);
+//        girlView.moveTo(300, 300);
+//
+//        girlView.moveTo(300, 0);
 
     }
 

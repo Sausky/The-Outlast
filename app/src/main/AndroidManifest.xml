@@ -12,22 +12,17 @@
             android:name=".ui.view.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
-        </activity>
-
-        <activity
-            android:name=".ui.start_animation.PreAnimationActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-
+        <activity
+            android:name=".ui.start_animation.PreAnimationActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+        </activity>
         <activity
             android:name=".ui.view.desk_prompt"
             android:label="@string/title_activity_desk_prompt"
@@ -72,9 +67,27 @@
         </activity>
         <activity
             android:name=".ui.view.mirror_hidden_thing"
-            android:label="@string/title_activity_mirror_hidden"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+            android:label="@string/title_activity_mirror_hidden" >
+        </activity>
+        <activity
+            android:name=".ui.view.EndActivity"
+            android:label="@string/title_activity_end" >
+        </activity>
+        <activity
+            android:name=".ui.view.LetteringDesk"
+            android:label="@string/title_activity_lettering_desk" >
+        </activity>
+        <activity
+            android:name=".ui.view.Shovel"
+            android:label="@string/title_activity_shovel" >
+        </activity>
+        <activity
+            android:name=".ui.view.Ring"
+            android:label="@string/title_activity_ring" >
+        </activity>
+        <activity
+            android:name=".ui.view.RingBig"
+            android:label="@string/title_activity_ring_big" >
         </activity>
     </application>
 

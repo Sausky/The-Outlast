@@ -1,25 +1,55 @@
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     android:orientation="horizontal"
     android:background="#b0000000">
+
     <ImageView
-        android:layout_gravity="bottom"
-        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/prompt_portrait"/>
+        android:id="@+id/desk_feature"
+        android:src="@drawable/desk_with_carve_closed"/>
+
+
     <ImageView
-        android:id="@+id/prompt_inf"
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:layout_height="100dp"
-        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/prompt_inf" />
+        android:id="@+id/left_drawer"
+
+        android:layout_marginRight="140dp"
+        android:layout_marginTop="20dp" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/center_drawer"
+        />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/right_drawer"
+
+        android:layout_marginLeft="140dp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:src="@drawable/back"
+        android:layout_gravity="right"
+        />
 
 
 
 
-</LinearLayout>
+</FrameLayout>

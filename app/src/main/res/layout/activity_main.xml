@@ -7,17 +7,21 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageView
-            android:id="@+id/deposit"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:src="@drawable/deposit"/>
+        android:orientation="horizontal"
+        android:background="@drawable/background_empty">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
         <ImageView
             android:id="@+id/door"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:paddingTop="100dp"
+            android:layout_width="150dp"
+            android:layout_height="750dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/door" />
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -27,66 +31,74 @@
 
             <ImageView
                 android:id="@+id/secret_pic"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/secret_pic"/>
 
-            <ImageView
-                android:id="@+id/lettering"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/lettering"/>
+
 
             <ImageView
                 android:id="@+id/desk"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/desk"/>
+                android:layout_width="180dp"
+                android:layout_height="180dp"/>
 
             <ImageView
                 android:id="@+id/screwdriver"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/screwdriver"/>
 
             <ImageView
                 android:id="@+id/mushroom"
+                android:layout_gravity="center"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/mushroom"/>
         </LinearLayout>
         <ImageView
-            android:id="@+id/secret_package"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/secret_package"
-            android:tag="secret_package"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:id="@+id/bed"
-                android:layout_marginTop="30dp"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/bed_unmoved"
-                android:tag="@string/bed_tool_name"
-                />
-        </LinearLayout>
-        <ImageView
             android:id="@+id/socket"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:paddingTop="90dp"
+            android:layout_width="20dp"
+            android:layout_height="110dp"
             android:src="@drawable/socket"
             android:scaleType="centerCrop"/>
         <ImageView
-            android:id="@+id/mirror"
-            android:layout_height="wrap_content"
+            android:id="@+id/secret_package"
+            android:paddingTop="100dp"
+            android:layout_height="200dp"
+            android:layout_width="80dp"
+            android:src="@drawable/secret_package_close"
+            />
+
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:src="@drawable/mirror"
-            android:tag="@string/mirror_tool_name"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/mirror"
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:src="@drawable/mirror"
+                />
+            <ImageView
+                android:id="@+id/bed"
+                android:scaleType="fitStart"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/bed_unmoved"
+
+                />
+            <ImageView
+                android:id="@+id/deposit"
+                android:paddingLeft="100dp"
+                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:src="@drawable/deposit_column"/>
+        </LinearLayout>
     </LinearLayout>
 
 

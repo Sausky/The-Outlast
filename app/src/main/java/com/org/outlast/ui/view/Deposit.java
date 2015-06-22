@@ -54,22 +54,46 @@ public class Deposit extends Activity{
          public void onItemClick(AdapterView<?> parent, View v, int position, long id)
          {
              //data.addPosition(position);
-             data.setName(String.valueOf(v.getTag()));;
+             data.setName(String.valueOf(v.getTag()));
+             String name = data.getName();
+             switch (name){
+                 case "drier":Toast.makeText(getApplication(),"开始使用吹风机",Toast.LENGTH_SHORT).show();
+                     break;
+                 case "ring":Toast.makeText(getApplication(),"开始查看戒指",Toast.LENGTH_SHORT).show();
+                     break;
+                 case "screwdriver":Toast.makeText(getApplication(),"开始使用螺丝刀",Toast.LENGTH_SHORT).show();
+                     break;
+                 case "shovel":Toast.makeText(getApplication(),"开始使用铲子",Toast.LENGTH_SHORT).show();
+                     break;
+                 case "none":break;
+             }
              Intent intent = new Intent();
-             intent.setClass(Deposit.this,MainActivity.class);
-             startActivity(intent);
-             finish();
+             try {
+                 Thread.sleep(1000);
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+             if(data.getName().equals("ring")){
+                intent.setClass(Deposit.this, RingBig.class);
+                 startActivity(intent);
+
+             }else {
+                 intent.setClass(Deposit.this,MainActivity.class);
+                 startActivity(intent);
+                 finish();
+             }
+
 
          }
          });
         //返回主界面
-        back = (ImageView) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        back = (ImageView) findViewById(R.id.back);
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
     }
 
 }

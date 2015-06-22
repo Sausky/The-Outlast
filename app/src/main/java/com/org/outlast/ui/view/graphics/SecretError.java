@@ -16,7 +16,7 @@ public class SecretError extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secret_error);
-        prompt = (ImageView) findViewById(R.id.prompt_inf);
+        prompt = (ImageView) findViewById(R.id.info_secret);
         prompt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
