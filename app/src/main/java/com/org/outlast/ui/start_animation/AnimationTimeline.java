@@ -19,7 +19,7 @@ public class AnimationTimeline {
         add(R.drawable.background);
         add(R.drawable.prompt_1);
         add(R.drawable.prompt_2);
-        add(R.drawable.prompt_4);
+        add(R.drawable.prompt_3);
     }};
 
     private static final ArrayList<Integer> anims = new ArrayList<Integer>(){{

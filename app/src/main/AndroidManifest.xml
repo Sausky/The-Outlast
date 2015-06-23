@@ -78,6 +78,7 @@
             android:name=".ui.view.mirror_hidden_thing"
             android:screenOrientation="landscape"
             android:label="@string/title_activity_mirror_hidden" >
+
         </activity>
         <activity
             android:name=".ui.view.EndActivity"

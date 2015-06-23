@@ -21,7 +21,7 @@ public class mirror_hidden_thing extends Activity {
         setContentView(R.layout.activity_mirror_hidden);
         ring = (ImageView) findViewById(R.id.portrait);
         info = (ImageView) findViewById(R.id.info_background);
-        RelativeLayout view = (RelativeLayout) findViewById(R.id.end_lettering);
+        RelativeLayout view = (RelativeLayout) findViewById(R.id.mirror_back);
         UIDecoder.setBackground(view, getResources(), R.drawable.notebook, 300, 300);
         //获取提示实现点击关闭
         ring.setOnClickListener(new View.OnClickListener() {
