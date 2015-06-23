@@ -1,41 +1,33 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:id="@+id/mirror_back"
+    android:gravity="bottom"
      >
 
     <ImageView
-        android:id="@+id/notebook"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="260dp"
-        android:layout_width="260dp"
+        android:id="@+id/portrait"
+        android:layout_height="200dp"
+        android:layout_width="180dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/notebook" />
-    <RelativeLayout
-        android:layout_gravity="bottom"
+        android:src="@drawable/girl_open"/>
+    <ImageView
+        android:id="@+id/info_background"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/portrait"
-            android:layout_height="160dp"
-            android:layout_width="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/girl_open"/>
-        <ImageView
-            android:layout_width="fill_parent"
-            android:scaleType="centerCrop"
-            android:layout_height="100dp"
-            android:layout_toRightOf="@id/portrait"
-            android:layout_alignBottom="@id/portrait"
-            android:src="@drawable/dialog_box"/>
-        <ImageView
-            android:layout_toRightOf="@id/portrait"
-            android:paddingLeft="10dp"
-            android:paddingTop="50dp"
-            android:paddingRight="10dp"
-            android:layout_height="100dp"
-            android:layout_width="wrap_content"
-            android:src="@drawable/notebook_prompt"/>
-    </RelativeLayout>
+        android:scaleType="centerCrop"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@id/portrait"
+        android:layout_alignBottom="@id/portrait"
+        android:src="@drawable/dialog_box"/>
+    <ImageView
+        android:id="@+id/info_secret"
+        android:layout_toRightOf="@id/portrait"
+        android:paddingLeft="10dp"
+        android:paddingTop="120dp"
+        android:paddingRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/notebook_prompt"/>
 
-</LinearLayout>
+
+</RelativeLayout>
