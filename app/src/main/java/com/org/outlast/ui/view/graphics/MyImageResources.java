@@ -15,7 +15,7 @@ public class MyImageResources{
     private static volatile boolean created = false;
     private static MyImageResources instance;
 
-    public final int girl_width = 50;
+    public final int girl_width = 60;
     public final int girl_height = 70;
 
     public Bitmap[] girl_right_move;

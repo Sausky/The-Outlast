@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewManager;
 import android.widget.ImageView;
@@ -283,10 +284,33 @@ public class MainActivity extends Activity {
 
 
 //        call this method every time you want to move
-//        girlView.moveTo(300, 300);
+//        girlView.moveTo(100, 1);
 //
 //        girlView.moveTo(300, 0);
 
+        Log.d("debug_helper","complete create");
+
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                return super.onTouchEvent(event);
+            case MotionEvent.ACTION_MOVE:
+                return super.onTouchEvent(event);
+            case MotionEvent.ACTION_UP:
+                int x = (int)event.getX();
+                int y = (int)event.getY();
+
+                Log.d("debug_helper",x+":"+y);
+                girlView.moveTo(x,y);
+                return true;
+        }
+        return false;
+//        return super.onTouchEvent(event);
     }
 
     /**

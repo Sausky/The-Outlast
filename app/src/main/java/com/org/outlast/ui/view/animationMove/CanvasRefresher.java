@@ -92,8 +92,9 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
 
 //        if x distance and y distance both smaller than 0.75*base_pace, then stop move
         double sqrt2_div2 = 0.75;
-        double min_dist = sqrt2_div2*base_pace;
+//        double min_dist = sqrt2_div2*base_pace;
 
+        int min_dist = 10;
 
         int x_pace = 0;
         int y_pace = 0;
@@ -113,30 +114,37 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
 
             destLocation = positionManager.getLocation();
 
-//            if the destination has changed
-            if (!destLocation.equals(checkLocation)) {
 
-                int x_dist = destLocation.getX() - currentLocation.getX();
-                int y_dist = destLocation.getY() - currentLocation.getY();
+            Log.d("debug_helper","current:"+currentLocation.getX()+":"+currentLocation.getY()+",  dest:"+destLocation.getX()+":"+destLocation.getY());
 
-                Log.d("debugging","changing dest to "+destLocation.getX()+" "+destLocation.getY());
+            int x_dist = destLocation.getX() - currentLocation.getX();
+            int y_dist = destLocation.getY() - currentLocation.getY();
+
+            if ((Math.abs(x_dist)>min_dist ||
+                    Math.abs(y_dist)>min_dist)&&
+                    moving){
 
                 if (x_dist > 0)
                     current_bitmaps = right_girls;
                 else
                     current_bitmaps = left_girls;
 
-                if (x_dist == 0) {
+                if (x_dist == 0 && y_dist!=0) {
                     x_pace = 0;
                     y_pace = y_dist > 0 ? 3 : -3;
-                } else {
-                    double k = y_dist / x_dist;
-                    base_pace *= x_dist > 0 ? 1 : -1;
+                } else if (y_dist == 0 && y_dist!=0){
+                    y_pace = 0;
+                    x_pace = x_dist>0?3:-3;
+                }
+                else{
+                    double k = Math.abs(y_dist / x_dist);
                     x_pace = (int) Math.ceil(base_pace * (1 / (k + 1)));
+                    x_pace *= x_dist > 0 ? 1 : -1;
                     y_pace = (int) Math.ceil(base_pace * (k / (k + 1)));
+                    y_pace *= y_dist > 0 ? 1 : -1;
                 }
 
-                checkLocation = destLocation;
+//                checkLocation = destLocation;
             }
 
 //            if has get the destination or paused
@@ -161,7 +169,9 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
 
                 canvas.drawColor(Color.TRANSPARENT, android.graphics.PorterDuff.Mode.CLEAR);
 
-                canvas.drawBitmap(current_bitmaps[controll_flag % 2], newX, newY, null);
+                Bitmap bitmap = current_bitmaps[controll_flag % 2];
+
+                canvas.drawBitmap(bitmap, newX, newY, null);
 
                 canvas.restore();
                 sfh.unlockCanvasAndPost(canvas);  // commit the finished canvas
