@@ -21,6 +21,7 @@ public class LetteringDesk extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+                onDestroy();
             }
         });
     }

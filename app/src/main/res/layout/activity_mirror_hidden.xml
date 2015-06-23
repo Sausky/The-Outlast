@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/notebook"
-        android:layout_gravity="center"
-        android:layout_height="300dp"
-        android:layout_width="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="260dp"
+        android:layout_width="260dp"
         android:scaleType="centerCrop"
         android:src="@drawable/notebook" />
     <RelativeLayout
@@ -17,14 +17,14 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/portrait"
-            android:layout_height="180dp"
-            android:layout_width="180dp"
+            android:layout_height="160dp"
+            android:layout_width="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/girl_open"/>
         <ImageView
             android:layout_width="fill_parent"
             android:scaleType="centerCrop"
-            android:layout_height="180dp"
+            android:layout_height="100dp"
             android:layout_toRightOf="@id/portrait"
             android:layout_alignBottom="@id/portrait"
             android:src="@drawable/dialog_box"/>
@@ -32,7 +32,8 @@
             android:layout_toRightOf="@id/portrait"
             android:paddingLeft="10dp"
             android:paddingTop="50dp"
-            android:layout_height="180dp"
+            android:paddingRight="10dp"
+            android:layout_height="100dp"
             android:layout_width="wrap_content"
             android:src="@drawable/notebook_prompt"/>
     </RelativeLayout>

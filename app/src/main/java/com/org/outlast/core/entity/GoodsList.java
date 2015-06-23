@@ -27,6 +27,30 @@ public class GoodsList extends Application {
     public  boolean door_state = false;
     /**是否获得铲子*/
     public  boolean shovel_state = false;
+    /**是否连接了吹风机*/
+    public boolean drier_connect = false;
+
+    public void setDrier_connect(Boolean drier_connect){this.drier_connect = drier_connect;}
+    public boolean getDrier_connect(){
+        return drier_connect;
+    }
+
+    public int bed_number = 0;
+
+    public boolean mushroom_state = false;
+
+    public void setMushroom_state(Boolean mushroom_state){this.mushroom_state = mushroom_state;}
+
+    public boolean getMushroomState(){
+        return mushroom_state;
+    }
+
+    public void setBed_number(int bed_number){
+        this.bed_number = bed_number;
+    }
+    public int getBed_number(){
+        return bed_number;
+    }
 
     public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;

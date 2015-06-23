@@ -12,16 +12,18 @@
             android:name=".ui.view.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".ui.start_animation.PreAnimationActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.view.desk_prompt"
@@ -34,6 +36,7 @@
             android:label="@string/title_activity_secret_pic_feature"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+
         </activity>
         <activity
             android:name=".ui.view.Bed_lettering"
@@ -49,7 +52,9 @@
         </activity>
         <activity
             android:name=".ui.view.graphics.SecretPackage"
-            android:label="@string/title_activity_secret_package" >
+            android:label="@string/title_activity_secret_package"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
         </activity>
         <activity
             android:name=".ui.view.graphics.Drier"
@@ -64,6 +69,7 @@
         <activity
             android:name=".ui.view.TheEndLettering"
             android:label="@string/title_activity_the_end_lettering" >
+
         </activity>
         <activity
             android:name=".ui.view.mirror_hidden_thing"
@@ -88,6 +94,15 @@
         <activity
             android:name=".ui.view.RingBig"
             android:label="@string/title_activity_ring_big" >
+
+        </activity>
+        <activity
+            android:name=".ui.view.MirrorPrompt"
+            android:label="@string/title_activity_mirror_prompt" >
+        </activity>
+        <activity
+            android:name=".ui.view.DoorPrompt"
+            android:label="@string/title_activity_door_prompt" >
         </activity>
     </application>
 

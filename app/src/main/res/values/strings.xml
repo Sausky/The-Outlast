@@ -23,4 +23,6 @@
     <string name="title_activity_shovel">Shovel</string>
     <string name="title_activity_ring">Ring</string>
     <string name="title_activity_ring_big">RingBig</string>
+    <string name="title_activity_mirror_prompt">MirrorPrompt</string>
+    <string name="title_activity_door_prompt">DoorPrompt</string>
 </resources>

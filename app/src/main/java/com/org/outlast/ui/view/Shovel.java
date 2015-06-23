@@ -25,6 +25,8 @@ public class Shovel extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(Shovel.this,MainActivity.class);
                 startActivity(intent);
+                finish();
+                onDestroy();
             }
         };
         shovel.setOnClickListener(clickListener);

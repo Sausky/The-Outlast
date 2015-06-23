@@ -1,18 +1,41 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
-    android:orientation="horizontal"
-    android:background="#b0000000">
+    android:id="@+id/back"
+    android:gravity="bottom">
+    <!--<ImageView-->
+        <!--android:id="@+id/bed_lettering"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@drawable/bed_lettering"/>-->
     <ImageView
-        android:id="@+id/bed_lettering"
-        android:layout_gravity="center"
+        android:id="@+id/portrait"
+        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/girl_open"/>
+    <ImageView
+        android:id="@+id/info_background"
+        android:layout_width="fill_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@id/portrait"
+        android:layout_alignBottom="@id/portrait"
+        android:src="@drawable/dialog_box"/>
+    <ImageView
+        android:id="@+id/info_secret"
+        android:layout_toRightOf="@id/portrait"
+        android:paddingLeft="10dp"
+        android:paddingTop="120dp"
+        android:paddingRight="10dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bed_lettering" />
+        android:src="@drawable/lettering_prompt"/>
 
 
 
 
-</LinearLayout>
+</RelativeLayout>

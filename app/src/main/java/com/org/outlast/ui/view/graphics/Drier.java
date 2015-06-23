@@ -37,8 +37,10 @@ public class Drier extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(Drier.this, MainActivity.class);
+                intent.setClass(Drier.this,MainActivity.class);
                 startActivity(intent);
+                finish();
+                onDestroy();
             }
         };
         drier.setOnClickListener(clickListener);

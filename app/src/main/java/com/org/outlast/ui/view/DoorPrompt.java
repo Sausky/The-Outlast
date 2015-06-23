@@ -1,24 +1,23 @@
 package com.org.outlast.ui.view;
 
 import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.org.outlast.R;
 
-/**
- * Created by shen on 15/5/31.
- */
-public class mirror_hidden_thing extends Activity {
-    ImageView notebook;
+public class DoorPrompt extends Activity {
+    private ImageView prompt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mirror_hidden);
-        //获取提示实现点击关闭
-        notebook = (ImageView) findViewById(R.id.notebook);
-        notebook.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_door_prompt);
+        prompt = (ImageView) findViewById(R.id.info_secret);
+        prompt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -26,4 +25,5 @@ public class mirror_hidden_thing extends Activity {
             }
         });
     }
+
 }

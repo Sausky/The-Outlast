@@ -103,7 +103,7 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
         int y_pace = 0;
 
         Location destLocation = positionManager.getLocation();
-        Location currentLocation = new Location(0,0);
+        Location currentLocation = new Location(300,300);
 
 //        used to check if the destLocation has changed
         Location checkLocation = destLocation;

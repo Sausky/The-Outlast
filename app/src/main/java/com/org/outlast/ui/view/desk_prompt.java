@@ -82,6 +82,7 @@ public class desk_prompt extends Activity{
 
                     startActivity(intent);
                     finish();
+                    onDestroy();
                 }
                 else if ((attempt<5)&&(correctSequence[attempt].equals(CENTERTAG))){
                     isCorrect=true;
@@ -120,6 +121,7 @@ public class desk_prompt extends Activity{
             @Override
             public void onClick(View v) {
                 finish();
+                onDestroy();
             }
         });
 

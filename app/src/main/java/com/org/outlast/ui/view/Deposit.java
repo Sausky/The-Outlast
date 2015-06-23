@@ -39,11 +39,17 @@ public class Deposit extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deposit);
 
-        GridView gridView = (GridView)findViewById(R.id.goodsGrid);
+        GridView gv = (GridView)findViewById(R.id.goodsGrid);
 
-        UIDecoder.setBackground(gridView,getResources(),R.drawable.deposit_background,300,300);
+        UIDecoder.setBackground(gv, getResources(), R.drawable.deposit_background, 300, 300);
 
-
+        back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         data = (GoodsList) getApplication();
         goodsList = data.getGoodsList();
         imgs = new int[20];
@@ -57,7 +63,6 @@ public class Deposit extends Activity{
             tags[i] = goodsList.get(i).getName();
 
         }
-        GridView gv = (GridView)findViewById(R.id.goodsGrid);
         //为GridView设置适配器
         gv.setAdapter(new MyAdapter(this,imgs,tags));
         //注册监听事件
@@ -93,6 +98,7 @@ public class Deposit extends Activity{
                  intent.setClass(Deposit.this,MainActivity.class);
                  startActivity(intent);
                  finish();
+                 onDestroy();
              }
 
 

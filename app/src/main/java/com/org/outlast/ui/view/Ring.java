@@ -30,6 +30,7 @@ public class Ring extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+                onDestroy();
             }
         };
         ring.setOnClickListener(clickListener);

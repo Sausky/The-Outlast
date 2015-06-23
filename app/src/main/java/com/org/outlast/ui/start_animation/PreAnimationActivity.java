@@ -34,6 +34,8 @@ public class PreAnimationActivity extends Activity implements View.OnClickListen
             Intent intent = new Intent();
             intent.setClass(PreAnimationActivity.this, MainActivity.class);
             startActivity(intent);
+            finish();
+            onDestroy();
 
         }
     }
