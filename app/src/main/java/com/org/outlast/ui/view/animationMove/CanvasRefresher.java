@@ -36,6 +36,7 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
     private MyImageResources imageResource;
 
 
+
     public void moveTo(int x,int y){
         keepMove();
         positionSetter.setPosition(x, y);
@@ -86,13 +87,15 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
 
 
     public void run(){
-        int newX,newY;
 
         int base_pace = 3;
 
 //        if x distance and y distance both smaller than 0.75*base_pace, then stop move
         double sqrt2_div2 = 0.75;
 //        double min_dist = sqrt2_div2*base_pace;
+
+        int newX,newY;
+        Bitmap[] current_bitmaps = new Bitmap[2];
 
         int min_dist = 10;
 
@@ -101,8 +104,6 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
 
         Location destLocation = positionManager.getLocation();
         Location currentLocation = new Location(0,0);
-
-        Bitmap[] current_bitmaps = new Bitmap[2];
 
 //        used to check if the destLocation has changed
         Location checkLocation = destLocation;
@@ -156,12 +157,13 @@ public class CanvasRefresher extends SurfaceView implements SurfaceHolder.Callba
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
                 continue;
             }
 
+
             newX = currentLocation.getX()+x_pace;
             newY = currentLocation.getY()+y_pace;
-
             canvas = sfh.lockCanvas(new Rect(newX - GirlW, newY - GirlH, GirlW + newX, GirlH + newY));
 
             if (canvas != null) {
