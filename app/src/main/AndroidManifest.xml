@@ -55,7 +55,8 @@
             android:name=".ui.view.graphics.SecretPackage"
             android:label="@string/title_activity_secret_package"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+
         </activity>
         <activity
             android:name=".ui.view.graphics.Drier"

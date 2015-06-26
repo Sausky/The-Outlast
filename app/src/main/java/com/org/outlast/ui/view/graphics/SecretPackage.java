@@ -25,7 +25,7 @@ public class SecretPackage extends Activity implements NumberPicker.OnValueChang
     private NumberPicker number_3;
     private Intent intent;
     private Button bt;
-    private ImageView back;
+    private Button back;
     /**密码*/
     private int s1 = 4;
     private int s2 = 2;
@@ -48,7 +48,7 @@ public class SecretPackage extends Activity implements NumberPicker.OnValueChang
         number_2 = (NumberPicker) findViewById(R.id.number_2);
         number_3 = (NumberPicker) findViewById(R.id.number_3);
         bt = (Button) findViewById(R.id.confirm);
-        back = (ImageView) findViewById(R.id.home);
+        back = (Button) findViewById(R.id.home);
 
         intent = new Intent();
         init(number_1);
