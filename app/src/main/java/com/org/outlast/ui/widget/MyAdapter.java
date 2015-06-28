@@ -38,9 +38,9 @@ public class MyAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             imageView = new ImageView(context);
-            imageView.setLayoutParams(new GridView.LayoutParams(100, 100));//设置ImageView对象布局
+            imageView.setLayoutParams(new GridView.LayoutParams(150, 150));//设置ImageView对象布局
             imageView.setAdjustViewBounds(true);//设置边界对齐
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);//设置刻度的类型
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);//设置刻度的类型
             imageView.setPadding(8, 8, 8, 8);//设置间距
         }
         else {
