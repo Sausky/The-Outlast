@@ -6,9 +6,9 @@
     >
 
     <GridView
-        android:paddingTop="120dp"
-        android:paddingLeft="120dp"
-        android:paddingRight="120dp"
+        android:paddingTop="60dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
         android:columnWidth="200dp"
         android:id="@+id/goodsGrid"
         android:layout_width="fill_parent"
@@ -21,7 +21,7 @@
         />
     <ImageView
         android:id="@+id/back"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_width="80dp"
         android:src="@drawable/back"/>
 </RelativeLayout>
