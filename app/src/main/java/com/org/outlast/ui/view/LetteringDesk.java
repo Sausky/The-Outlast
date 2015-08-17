@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.org.outlast.R;
+import com.org.outlast.UIDecoder;
 
 public class LetteringDesk extends Activity {
     ImageView lettering;
@@ -17,6 +18,7 @@ public class LetteringDesk extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lettering_desk);
         lettering = (ImageView) findViewById(R.id.the_end_lettering);
+        UIDecoder.setBackground(lettering, getResources(), R.drawable.lettering_big, 500, 500);
         lettering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
