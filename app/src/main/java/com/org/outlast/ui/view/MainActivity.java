@@ -13,9 +13,12 @@ import android.widget.Toast;
 import android.widget.LinearLayout;
 
 import com.org.outlast.R;
+import com.org.outlast.UIDecoder;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
 import com.org.outlast.ui.view.graphics.SecretPackage;
+
+import static com.org.outlast.R.id.background_main;
 
 
 public class MainActivity extends Activity {
@@ -62,7 +65,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        LinearLayout ll = (LinearLayout) findViewById(background_main);
+        UIDecoder.setBackground(ll, getResources(), R.drawable.background_empty, 1024, 600);
         initThings();
         mushroom = (ImageView) findViewById(R.id.mushroom);
         socket_drier = (ImageView) findViewById(R.id.socket_drier);
