@@ -23,7 +23,7 @@ public class TheEndLettering extends Activity {
         setContentView(R.layout.activity_the_end_lettering);
         home = (ImageView) findViewById(R.id.home);
         RelativeLayout view = (RelativeLayout) findViewById(R.id.end_lettering);
-        UIDecoder.setBackground(view, getResources(), R.drawable.the_end_lettering, 300, 300);
+        UIDecoder.setBackground(view, getResources(), R.drawable.the_new_end_lettering, 300, 300);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
