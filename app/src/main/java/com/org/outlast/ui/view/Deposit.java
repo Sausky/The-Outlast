@@ -48,6 +48,7 @@ public class Deposit extends Activity{
             @Override
             public void onClick(View v) {
                 finish();
+                onDestroy();
             }
         });
         data = (GoodsList) getApplication();
@@ -95,8 +96,6 @@ public class Deposit extends Activity{
                  startActivity(intent);
 
              }else {
-                 intent.setClass(Deposit.this,MainActivity.class);
-                 startActivity(intent);
                  finish();
                  onDestroy();
              }

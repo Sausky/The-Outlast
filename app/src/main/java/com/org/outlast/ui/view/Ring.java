@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.org.outlast.R;
+import com.org.outlast.UIDecoder;
 import com.org.outlast.core.entity.GoodsList;
 
 public class Ring extends Activity {
@@ -21,6 +22,8 @@ public class Ring extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ring);
         ring = (ImageView) findViewById(R.id.ring);
+
+        UIDecoder.setBackground(ring,getResources(),R.drawable.ring,300,300);
         tv = (ImageView) findViewById(R.id.tv);
         data = (GoodsList) getApplication();
         //addGoods

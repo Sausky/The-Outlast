@@ -1,6 +1,7 @@
 package com.org.outlast.ui.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,7 +19,9 @@ public class mirror_hidden_thing extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_mirror_hidden);
+        final Intent intent = new Intent(mirror_hidden_thing.this,MainActivity.class);
         ring = (ImageView) findViewById(R.id.portrait);
         info = (ImageView) findViewById(R.id.info_background);
         RelativeLayout view = (RelativeLayout) findViewById(R.id.mirror_back);
@@ -27,6 +30,7 @@ public class mirror_hidden_thing extends Activity {
         ring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(intent);
                 finish();
                 onDestroy();
             }
@@ -34,6 +38,7 @@ public class mirror_hidden_thing extends Activity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(intent);
                 finish();
                 onDestroy();
             }

@@ -18,7 +18,7 @@ public class LetteringDesk extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lettering_desk);
         lettering = (ImageView) findViewById(R.id.the_end_lettering);
-        UIDecoder.setBackground(lettering, getResources(), R.drawable.lettering_big, 500, 500);
+        UIDecoder.setBackground(lettering, getResources(), R.drawable.lettering_big, 600, 400);
         lettering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

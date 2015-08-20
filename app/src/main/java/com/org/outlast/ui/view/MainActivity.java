@@ -13,9 +13,12 @@ import android.widget.Toast;
 import android.widget.LinearLayout;
 
 import com.org.outlast.R;
+import com.org.outlast.UIDecoder;
 import com.org.outlast.core.entity.GoodsList;
 import com.org.outlast.ui.view.animationMove.CanvasRefresher;
 import com.org.outlast.ui.view.graphics.SecretPackage;
+
+import static com.org.outlast.R.id.background_main;
 
 
 public class MainActivity extends Activity {
@@ -62,7 +65,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        LinearLayout ll = (LinearLayout) findViewById(background_main);
+        UIDecoder.setBackground(ll, getResources(), R.drawable.background_empty, 300, 300);
         initThings();
         mushroom = (ImageView) findViewById(R.id.mushroom);
         socket_drier = (ImageView) findViewById(R.id.socket_drier);
@@ -264,6 +268,8 @@ public class MainActivity extends Activity {
 
                     mirror_searched = true;
                     data.removeThing(SCREWDRIVER_NAME);
+                    finish();
+                    onDestroy();
                 } else if (mirror_searched) {
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(getApplicationContext(), "里面看起来空空如也", duration);
