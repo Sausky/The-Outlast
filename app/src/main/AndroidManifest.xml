@@ -13,6 +13,11 @@
             android:name=".ui.view.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ui.start_animation.PreAnimationActivity"
@@ -110,11 +115,7 @@
             android:name=".ui.view.SecretKeyboard"
             android:label="@string/title_activity_secret_keyboard"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

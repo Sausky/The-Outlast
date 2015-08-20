@@ -30,7 +30,7 @@ public class desk_prompt extends Activity{
     private static final String CENTERTAG="C";
     private static final String RIGHTTAG="R";
     private String[] correctSequence={CENTERTAG,LEFTTAG,LEFTTAG,LEFTTAG,CENTERTAG,CENTERTAG};
-    private boolean isCorrect;
+    private static boolean isCorrect;
     private int attempt;
     public GoodsList data;
     /**铲子的标识*/
@@ -47,7 +47,7 @@ public class desk_prompt extends Activity{
         leftDrawer=(ImageView)findViewById(R.id.left_drawer);
         centerDrawer=(ImageView)findViewById(R.id.center_drawer);
         rightDrawer=(ImageView)findViewById(R.id.right_drawer);
-        isCorrect=false;
+        isCorrect=true;
         attempt=0;
         data = (GoodsList) getApplication();
 
@@ -56,14 +56,14 @@ public class desk_prompt extends Activity{
             @Override
             public void onClick(View v) {
 
-                if ((attempt<=5)&&(correctSequence[attempt].equals(LEFTTAG))){
+                if (isCorrect&&(attempt<=5)&&(correctSequence[attempt].equals(LEFTTAG))){
                     isCorrect=true;
                 }
                 else{
                     isCorrect=false;
                 }
                 attempt++;
-                Toast.makeText(getApplicationContext(),"我晃动了左边的抽屉",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"我晃动了左边的抽屉"+attempt+" "+isCorrect,Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -72,7 +72,7 @@ public class desk_prompt extends Activity{
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(),"我晃动了中间的抽屉",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"我晃动了中间的抽屉"+attempt+" "+isCorrect,Toast.LENGTH_SHORT).show();
                 if ((attempt==5)&&isCorrect){
                     is_shovel_found=true;
                     data.addGoods(shovel,R.drawable.shovel);
@@ -84,7 +84,7 @@ public class desk_prompt extends Activity{
                     finish();
                     onDestroy();
                 }
-                else if ((attempt<5)&&(correctSequence[attempt].equals(CENTERTAG))){
+                else if ((isCorrect==true)&&(attempt<5)&&(correctSequence[attempt].equals(CENTERTAG))){
                     isCorrect=true;
                 }else{
                     isCorrect=false;
